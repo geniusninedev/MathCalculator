@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_density_calculator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.geniusnine.android.mathcalculators.MassCalculator.MassCalculator">
+<LinearLayout android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_marginTop="20dp"
+                    android:text="Enter Density :"
+                    android:layout_width="136dp"
+                    android:layout_height="55dp"
+                    android:id="@+id/textViewDensity"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberSigned"
+                    android:text=""
+
+                    android:ems="10"
+                    android:id="@+id/editTextDensity"
+                    android:layout_weight="2" />
+    <TextView
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        android:text="kg/cubic meter"
+        android:layout_width="136dp"
+        android:layout_height="55dp"
+        android:id="@+id/textViewDensityText"
+        android:textSize="18dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_marginTop="20dp"
+                    android:text="Enter Volume :"
+                    android:layout_width="136dp"
+                    android:layout_height="55dp"
+                    android:id="@+id/textViewVolume"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:layout_marginTop="20dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberSigned"
+                    android:text=""
+
+                    android:ems="10"
+                    android:id="@+id/editTextVolume"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_marginTop="20dp"
+                    android:text="cubic meter"
+                    android:layout_width="136dp"
+                    android:layout_height="55dp"
+                    android:id="@+id/textViewVolumeText"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="180dp"
+                android:gravity="center"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:background="@color/colorPrimary"
+
+                    android:text="Calculate"
+                    android:layout_width="match_parent"
+               android:layout_weight="1"
+                    android:textSize="18dp"
+                    android:textColor="@android:color/background_light"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonCalculate" />
+                <Button
+                    android:textColor="@android:color/background_light"
+                    android:layout_marginLeft="20dp"
+                    android:text="Clear"
+                   android:layout_weight="1"
+                    android:textSize="18dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonClear" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="220dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:background="@android:drawable/editbox_background"
+                    android:textColor="#000000"
+                    android:text="Mass Value:"
+                    android:visibility="invisible"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewMass"
+                    android:textSize="20dp" />
+                <TextView
+                    android:background="@android:drawable/editbox_background"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:visibility="invisible"
+                    android:layout_width="364dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewResulrMass"
+                    android:textSize="18dp" />
+                <TextView
+                    android:visibility="invisible"
+                    android:background="@android:drawable/editbox_background"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewResulrMassInGram"
+                    android:textSize="18dp" />
+                <TextView
+                    android:background="@android:drawable/editbox_background"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:textColor="#000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewResulrMassInMiligram"
+                    android:textSize="18dp" />
+                <TextView
+                    android:background="@android:drawable/editbox_background"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewResultMassInTon"
+                    android:textSize="18dp" />
+                <TextView
+                    android:background="@android:drawable/editbox_background"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewResultMassInPound"
+                    android:textSize="18dp" />
+                <TextView
+                    android:background="@android:drawable/editbox_background"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:textColor="#000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewResultMassIncarrat"
+                    android:textSize="18dp" />
+                <TextView
+                    android:background="@android:drawable/editbox_background"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewResultMassIngrain"
+                    android:textSize="18dp" />
+            </LinearLayout>
+     </RelativeLayout>
+    </ScrollView>

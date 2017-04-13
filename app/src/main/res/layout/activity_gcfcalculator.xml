@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:context="nineinfosys.lcmcalculator.MainActivity">
+
+        <LinearLayout
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="Enter Values to Take:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewNumber"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textColor="#000000"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+
+                android:id="@+id/editTextAnswerNumber"
+                android:layout_weight="1"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:weightSum="2"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:hint="Enter 1st Value"
+
+                android:id="@+id/editTextOne" />
+
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:hint="Enter 2nd Value"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/editTextTwo" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="70dp"
+            android:weightSum="2"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:hint="Enter 3rd Value"
+
+                android:id="@+id/editTextThree" />
+
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:hint="Enter 4th Value"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/editTextFour" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="100dp"
+            android:weightSum="2"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:hint="Enter 5th Value"
+
+                android:id="@+id/editTextFive" />
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:hint="Enter 6th Value"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/editTextSix" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="130dp"
+            android:weightSum="2"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:hint="Enter 7th Value"
+                android:id="@+id/editTextSeven" />
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:layout_marginLeft="20dp"
+                android:hint="Enter 8th Value"
+
+                android:id="@+id/editTextEight" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="160dp"
+            android:weightSum="2"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:hint="Enter 9th Value"
+
+                android:id="@+id/editTextNine" />
+            <EditText
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberSigned"
+                android:text=""
+                android:weightSum="1"
+                android:hint="Enter 10th Value"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/editTextTen" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="220dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:gravity="center"
+            android:weightSum="2">
+
+            <Button
+                android:text="Calculate"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:textSize="18dp"
+         android:layout_weight="1"
+                android:textColor="@android:color/background_light"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonCalculate" />
+
+            <Button
+                android:text="Clear"
+                android:textSize="18dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@android:color/background_light"
+                android:background="@color/colorPrimary"
+                android:id="@+id/buttonClear"
+               />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="290dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewResult"
+                android:gravity="center"
+
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>
+
+

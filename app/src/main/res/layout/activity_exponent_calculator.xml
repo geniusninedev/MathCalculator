@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_exponent_calculator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.geniusnine.android.mathcalculators.ExponentCalci.ExponentCalculator">
+    <LinearLayout
+        android:layout_marginTop="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+
+       >
+
+        <Button
+            android:text="Calculate"
+            android:textColor="@android:color/background_light"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonCalculate"
+android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            />
+
+        <Button
+            android:textColor="@android:color/background_light"
+            android:text="Clear"
+           android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:id="@+id/buttonClear" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:background="@android:drawable/editbox_background"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        android:id="@+id/textViewresult" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginTop="20dp"
+      >
+
+        <EditText
+            android:layout_height="wrap_content"
+
+            android:inputType="numberSigned"
+
+           android:layout_weight="1"
+            android:id="@+id/editTextBase"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:background="@android:drawable/editbox_background"
+            android:hint="Enter Base "
+            android:layout_width="250dp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewExponent"
+            android:text="^"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+
+
+            android:layout_weight="1"
+            android:id="@+id/editTextExponent"
+            android:textSize="16dp"
+
+            android:background="@android:drawable/editbox_background"
+            android:hint="Enter Exponent "
+            android:layout_width="250dp" />
+
+        <!-- <EditText
+             android:layout_width="93dp"
+             android:layout_height="wrap_content"
+             android:inputType="numberSigned"
+             android:ems="10"
+             android:id="@+id/editTextResult" />-->
+    </LinearLayout>
+</RelativeLayout>
+</ScrollView>

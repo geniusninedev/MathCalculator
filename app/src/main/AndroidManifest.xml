@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.geniusnine.android.mathcalculators">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:name=".Login.CustomApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="stateHidden|adjustResize">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login.Login"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="Login"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Login.SignUp"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="Sign Up"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".DashBord.GetApp"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/getApp_id"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".PercentErrorCalculator.PercentErrorCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name1"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".HalfLifeCalci.HalfLifeCalci"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name2"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".QuadraticCalci.QuadraticCalci"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name3"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".ExponentCalci.ExponentCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name4"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".BinaryCalculator.BinaryCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name5"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".HexCalculator.HexCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name6"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".LogCalculator.LogCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name7"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".RatioCalculator.RatioCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name8"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".RootCalculator.RootCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name9"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".RootCalculator.SquareRootCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name19"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RootCalculator.SquareRootCalculator" />
+        </activity>
+        <activity
+            android:name=".RootCalculator.CubeRootCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name20"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RootCalculator.CubeRootCalculator" />
+        </activity>
+        <activity
+            android:name=".DensityCalculator.DensityCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name10"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".MassCalculator.MassCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name11"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".FractionCalculator.FractionCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name12"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".GCFCalculator.GCFCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name13"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".HalfLifeCalci.MeanHalfLifeCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name14"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HalfLifeCalci.MeanHalfLifeCalculator" />
+        </activity>
+        <activity
+            android:name=".HalfLifeCalci.HalfLifeCalculatorCalci"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name15"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HalfLifeCalci.HalfLifeCalculatorCalci" />
+        </activity>
+        <activity
+            android:name=".RatioCalculator.RatioScalingCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name16"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RatioCalculator.RatioScalingCalculator" />
+        </activity>
+        <activity
+            android:name=".RatioCalculator.RatioCalCalci"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name8"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".RootCalculator.RootCalCalci"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name9"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".FractionCalculator.FractionCalCalci"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name12"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".FractionCalculator.SimplifyFractionsCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name21"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FractionCalculator.SimplifyFractionsCalculator" />
+        </activity>
+        <activity
+            android:name=".FractionCalculator.FractiontoDecimalCalci"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name22"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FractionCalculator.FractiontoDecimalCalci" />
+        </activity>
+        <activity
+            android:name=".FractionCalculator.DecimaltoFractionCalci"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name17"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FractionCalculator.DecimaltoFractionCalci" />
+        </activity>
+        <activity
+            android:name=".TimeCalculator.TimeCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name23"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".DateCalculator.DateCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name24"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".HexCalculator.HexCalCalci"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name6"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".HexCalculator.ConversionCalculator"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name25"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HexCalculator.ConversionCalculator" />
+        </activity>
+    </application>
+
+</manifest>

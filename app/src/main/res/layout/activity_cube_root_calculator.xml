@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cube_root_calculator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.geniusnine.android.mathcalculators.RootCalculator.CubeRootCalculator">
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:text="Cube Root Of"
+            android:layout_width="match_parent"
+            android:textSize="18dp"
+            android:textColor="#000000"
+         android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewCubeNumber" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:inputType="numberSigned"
+            android:text=""
+            android:layout_weight="1"
+            android:background="@android:drawable/editbox_background"
+            android:hint="Enter The Number"
+
+            android:id="@+id/editTextCubeRootResult" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+
+        <Button
+            android:text="Calculate"
+            android:textSize="18dp"
+            android:textColor="@android:color/background_light"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+         android:layout_weight="1"
+            android:id="@+id/buttonCalci" />
+
+        <Button
+            android:text="Clear"
+            android:textColor="@android:color/background_light"
+            android:layout_marginLeft="20dp"
+            android:textSize="18dp"
+            android:weightSum="1"
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonClear"
+            android:layout_weight="1" />
+    </LinearLayout>
+</RelativeLayout>
+</ScrollView>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_time_calculator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.geniusnine.android.mathcalculators.TimeCalculator.TimeCalculator">
+    <LinearLayout
+        android:weightSum="4"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            android:text="Day"
+          android:layout_weight="1"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/textViewfirstDay" />
+
+
+        <TextView
+            android:text="Hour"
+            android:textSize="20dp"
+           android:layout_weight="1"
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewfirstHour" />
+
+
+        <TextView
+            android:text="Minute"
+            android:textSize="20dp"
+            android:textColor="#000000"
+           android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewfirstMinute" />
+
+        <TextView
+            android:text="Second"
+            android:textSize="20dp"
+            android:textColor="#000000"
+         android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewfirstSecond" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:weightSum="4"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:background="@android:drawable/editbox_background"
+          android:layout_weight="1"
+            android:hint="Day"
+            android:gravity="center"
+            android:id="@+id/editTextfirstDay" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:background="@android:drawable/editbox_background"
+
+            android:hint="Hour"
+           android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/editTextfirstHour" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:background="@android:drawable/editbox_background"
+
+            android:hint="Minute"
+        android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/editTextfirstMinute" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:background="@android:drawable/editbox_background"
+            android:hint="Second"
+         android:layout_weight="1"
+            android:gravity="center"
+            android:ems="10"
+            android:id="@+id/editTextfirstSecond" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerTime" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:weightSum="4"
+        android:gravity="center"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:background="@android:drawable/editbox_background"
+
+          android:layout_weight="1"
+            android:gravity="center"
+            android:hint="Day"
+            android:id="@+id/editTextsecondDay" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:background="@android:drawable/editbox_background"
+
+            android:hint="Hour"
+       android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/editTextsecondHour" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:background="@android:drawable/editbox_background"
+
+            android:gravity="center"
+            android:hint="Minute"
+        android:layout_weight="1"
+            android:id="@+id/editTextsecondMinute" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:background="@android:drawable/editbox_background"
+            android:hint="Second"
+            android:gravity="center"
+          android:layout_weight="1"
+            android:id="@+id/editTextsecondSecond" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="250dp">
+
+
+        <Button
+            android:text="Calculate"
+            android:textSize="18dp"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@android:color/background_light"
+            android:id="@+id/buttonCalculate" />
+
+        <Button
+            android:text="Clear"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/background_light"
+            android:id="@+id/buttonClear"
+            android:layout_marginLeft="20dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="320dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text=""
+            android:gravity="center"
+            android:textSize="18dp"
+            android:visibility="invisible"
+            android:background="@android:drawable/editbox_background"
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewResult"
+            android:layout_weight="1" />
+    </LinearLayout>
+</RelativeLayout>
+</ScrollView>
