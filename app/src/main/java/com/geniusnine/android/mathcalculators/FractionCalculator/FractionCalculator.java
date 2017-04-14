@@ -1,12 +1,11 @@
 package com.geniusnine.android.mathcalculators.FractionCalculator;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,7 +17,7 @@ import com.geniusnine.android.mathcalculators.R;
 
 import java.util.ArrayList;
 
-public class FractionCalculator extends AppCompatActivity {
+public class FractionCalculator extends android.support.v4.app.Fragment{
     EditText firstValue,secondValue,thirdValue,fourthValue;
     TextView textViewFraction,textViewFractionOne;
     double valueOne,valueTwo,valueThree,valueFour;
@@ -26,26 +25,31 @@ public class FractionCalculator extends AppCompatActivity {
     EditText editTextResult;
     Spinner mathOperation;
     TextView textViewResult,textViewfractionResult;
-    @Override
+/*    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fraction_calculator);
-
-        firstValue=(EditText)findViewById(R.id.editTextFirstValue);
-        secondValue=(EditText)findViewById(R.id.editTextSecondValue);
-        thirdValue=(EditText)findViewById(R.id.editTextThirdValue);
-        fourthValue=(EditText)findViewById(R.id.editTextFourthValue);
-        editTextResult=(EditText)findViewById(R.id.editTextResult);
+        setContentView(R.layout.activity_fraction_calculator);*/
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
+    View view = inflater.inflate(R.layout.activity_fraction_calculator, container, false);
 
-        textViewFraction=(TextView)findViewById(R.id.textViewEqual);
-        textViewFractionOne=(TextView)findViewById(R.id.textViewFractionOne);
-        textViewResult=(TextView)findViewById(R.id.textViewResult);
-        textViewfractionResult=(TextView)findViewById(R.id.textViewtextResult);
+        firstValue=(EditText)view.findViewById(R.id.editTextFirstValue);
+        secondValue=(EditText)view.findViewById(R.id.editTextSecondValue);
+        thirdValue=(EditText)view.findViewById(R.id.editTextThirdValue);
+        fourthValue=(EditText)view.findViewById(R.id.editTextFourthValue);
+        editTextResult=(EditText)view.findViewById(R.id.editTextResult);
 
 
-        mathOperation=(Spinner)findViewById(R.id.spinnerFraction);
+
+        textViewFraction=(TextView)view.findViewById(R.id.textViewEqual);
+        textViewFractionOne=(TextView)view.findViewById(R.id.textViewFractionOne);
+        textViewResult=(TextView)view.findViewById(R.id.textViewResult);
+        textViewfractionResult=(TextView)view.findViewById(R.id.textViewtextResult);
+
+
+        mathOperation=(Spinner)view.findViewById(R.id.spinnerFraction);
 
         ArrayList area = new ArrayList();
         area.add("+");
@@ -54,13 +58,13 @@ public class FractionCalculator extends AppCompatActivity {
         area.add("/");
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, area);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, area);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mathOperation.setAdapter(dataAdapter);
 
 
-        Button calculate=(Button)findViewById(R.id.buttonCalculate);
-        Button clear=(Button)findViewById(R.id.buttonClear);
+        final Button calculate=(Button)view.findViewById(R.id.buttonCalculate);
+        Button clear=(Button)view.findViewById(R.id.buttonClear);
 
 /*
 
@@ -74,8 +78,11 @@ public class FractionCalculator extends AppCompatActivity {
             public void onClick(View v) {
 
                 FractionCalci fractionCalci=new FractionCalci();
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            //  Context context = getActivity();
+
+
+                hideKeyboard();
+
                 String spinnerArea = mathOperation.getSelectedItem().toString().trim();
 
                 if (firstValue.getText().toString().trim().equals("")) {
@@ -148,6 +155,7 @@ public class FractionCalculator extends AppCompatActivity {
                     }
                 }
             }
+
         });
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,8 +172,16 @@ public class FractionCalculator extends AppCompatActivity {
 
             }
         });
+    return  view;
     }
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
 
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -176,8 +192,8 @@ public class FractionCalculator extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
-            Intent intent=new Intent(FractionCalculator.this,FractionCalCalci.class);
-            finish();
+            Intent intent=new Intent(getActivity(),FractionCalCalci.class);
+           // finish();
             startActivity(intent);
 
 
@@ -186,7 +202,7 @@ public class FractionCalculator extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+  /*  @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
@@ -198,7 +214,7 @@ public class FractionCalculator extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 }
 
 

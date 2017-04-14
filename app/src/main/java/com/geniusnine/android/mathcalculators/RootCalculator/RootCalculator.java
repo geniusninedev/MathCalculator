@@ -1,12 +1,11 @@
 package com.geniusnine.android.mathcalculators.RootCalculator;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,32 +13,33 @@ import android.widget.TextView;
 
 import com.geniusnine.android.mathcalculators.R;
 
-public class RootCalculator extends AppCompatActivity {
+public class RootCalculator extends android.support.v4.app.Fragment{
 
     double generalRootNumber;
     int  generalRoot;
 
     TextView textViewGeneralRoot,textViewGeneralRootNumber,textViewResult;
     EditText editTextGeneralRoot,editTextGeneralRootNumber;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_root_calculator);
-
-        textViewGeneralRoot=(TextView)findViewById(R.id.textViewGeneralRoot);
-        textViewGeneralRootNumber=(TextView)findViewById(R.id.textViewRootNumber);
-        textViewResult=(TextView)findViewById(R.id.textViewResult);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        editTextGeneralRoot=(EditText) findViewById(R.id.editTextRoot);
-        editTextGeneralRootNumber=(EditText) findViewById(R.id.editTextRootNumber);
+        View view = inflater.inflate(R.layout.activity_root_calculator, container, false);
+
+
+        textViewGeneralRoot=(TextView)view.findViewById(R.id.textViewGeneralRoot);
+        textViewGeneralRootNumber=(TextView)view.findViewById(R.id.textViewRootNumber);
+        textViewResult=(TextView)view.findViewById(R.id.textViewResult);
+
+
+        editTextGeneralRoot=(EditText)view. findViewById(R.id.editTextRoot);
+        editTextGeneralRootNumber=(EditText)view. findViewById(R.id.editTextRootNumber);
 
 
 
 
-        Button buttonCalci=(Button)findViewById(R.id.CalciButton);
-        Button buttonClear=(Button)findViewById(R.id.ClearButton);
+        Button buttonCalci=(Button)view.findViewById(R.id.CalciButton);
+        Button buttonClear=(Button)view.findViewById(R.id.ClearButton);
 
 
 
@@ -47,8 +47,7 @@ public class RootCalculator extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 RootCalci squareRootCalculator=new RootCalci();
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                hideKeyboard();
                 if(editTextGeneralRoot.getText().toString().trim().equals("")){
                     editTextGeneralRoot.setError("Enter The Root ");
                 }
@@ -79,9 +78,16 @@ public class RootCalculator extends AppCompatActivity {
 
             }
         });
-
+return  view;
     }
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
 
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -91,8 +97,8 @@ public class RootCalculator extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
-            Intent intent=new Intent(RootCalculator.this,RootCalCalci.class);
-            finish();
+            Intent intent=new Intent(getActivity(),RootCalCalci.class);
+           // finish();
             startActivity(intent);
 
 
@@ -101,7 +107,7 @@ public class RootCalculator extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+  /*  @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
@@ -113,7 +119,7 @@ public class RootCalculator extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
 }
 

@@ -1,13 +1,12 @@
 package com.geniusnine.android.mathcalculators.RootCalculator;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,31 +14,33 @@ import android.widget.TextView;
 
 import com.geniusnine.android.mathcalculators.R;
 
-public class CubeRootCalculator extends AppCompatActivity {
+public class CubeRootCalculator extends android.support.v4.app.Fragment{
+
     TextView textViewCubeRoot;
     EditText cubeRootResult;
     int cubeRootNumber;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        setContentView(R.layout.activity_cube_root_calculator);
 
-        textViewCubeRoot=(TextView)findViewById(R.id.textViewCubeNumber);
-        cubeRootResult=(EditText) findViewById(R.id.editTextCubeRootResult);
+        View view = inflater.inflate(R.layout.activity_cube_root_calculator, container, false);
 
-        Button calci=(Button)findViewById(R.id.buttonCalci);
-        Button reset=(Button)findViewById(R.id.buttonClear);
+        textViewCubeRoot=(TextView)view.findViewById(R.id.textViewCubeNumber);
+        cubeRootResult=(EditText) view.findViewById(R.id.editTextCubeRootResult);
+
+        Button calci=(Button)view.findViewById(R.id.buttonCalci);
+        Button reset=(Button)view.findViewById(R.id.buttonClear);
 
         calci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RootCalci squareRootCalculator=new RootCalci();
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                hideKeyboard();
+
                 if(cubeRootResult.getText().toString().trim().equals("")){
                     cubeRootResult.setError("Enter The Number");
                 }
+
                 else {
                     cubeRootNumber = Integer.parseInt(cubeRootResult.getText().toString().trim());
                     double result = squareRootCalculator.cubeRoot((double) cubeRootNumber);
@@ -54,25 +55,32 @@ public class CubeRootCalculator extends AppCompatActivity {
                 cubeRootResult.setText("");
             }
         });
-
+return  view;
     }
 
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
 
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            Intent intent=new Intent(CubeRootCalculator.this,RootCalCalci.class);
-            finish();
+            Intent intent=new Intent(getActivity(),RootCalCalci.class);
+            //finish();
             startActivity(intent);
 
         }
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+  /*  @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
@@ -82,7 +90,7 @@ public class CubeRootCalculator extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);

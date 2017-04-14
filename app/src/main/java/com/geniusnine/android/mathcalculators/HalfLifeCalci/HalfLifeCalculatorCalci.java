@@ -1,13 +1,12 @@
 package com.geniusnine.android.mathcalculators.HalfLifeCalci;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,11 +15,13 @@ import android.widget.Toast;
 
 import com.geniusnine.android.mathcalculators.R;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 /**
  * Created by Dev on 12-04-2017.
  */
 
-public class HalfLifeCalculatorCalci extends AppCompatActivity {
+public class HalfLifeCalculatorCalci extends android.support.v4.app.Fragment {
 
     TextView textViewQuantity,textViewInitial,textViewTime,textViewHalfLife;
     EditText editTextQuantity,editTextInitial,editTextTime,editTextHalfLife;
@@ -31,26 +32,29 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
 
     halfLifeCalculator HalfLifeCalci;
     MeanHalfLifeCalci MeanHalfLifeCalci;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.half_life);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        textViewQuantity = (TextView) findViewById(R.id.textViewQuantity);
-        textViewInitial = (TextView) findViewById(R.id.textViewInitial);
-
-        textViewTime = (TextView) findViewById(R.id.textViewTime);
-        textViewHalfLife = (TextView) findViewById(R.id.textViewHalfLife);
+        View view = inflater.inflate(R.layout.half_life, container, false);
 
 
-        editTextQuantity = (EditText) findViewById(R.id.editTextQuantity);
-        editTextInitial = (EditText) findViewById(R.id.editTextInitial);
-        editTextTime = (EditText) findViewById(R.id.editTextTime);
-        editTextHalfLife = (EditText) findViewById(R.id.editTextHalfLife);
 
-        Button calculate = (Button) findViewById(R.id.buttonCalculate);
-        Button clear = (Button) findViewById(R.id.buttonClear);
+        textViewQuantity = (TextView)view. findViewById(R.id.textViewQuantity);
+        textViewInitial = (TextView)view. findViewById(R.id.textViewInitial);
+
+        textViewTime = (TextView)view. findViewById(R.id.textViewTime);
+        textViewHalfLife = (TextView)view. findViewById(R.id.textViewHalfLife);
+
+
+        editTextQuantity = (EditText)view. findViewById(R.id.editTextQuantity);
+        editTextInitial = (EditText)view. findViewById(R.id.editTextInitial);
+        editTextTime = (EditText)view. findViewById(R.id.editTextTime);
+        editTextHalfLife = (EditText) view.findViewById(R.id.editTextHalfLife);
+
+        Button calculate = (Button)view. findViewById(R.id.buttonCalculate);
+        Button clear = (Button) view.findViewById(R.id.buttonClear);
 
 
         calculate.setOnClickListener(new View.OnClickListener() {
@@ -59,8 +63,8 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
 
                 halfLifeCalculator HalfLifeCalci = new halfLifeCalculator();
 
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
+                hideKeyboard();
 
                 Toast.makeText(getApplicationContext(), "Enter Any Three Values", Toast.LENGTH_LONG).show();
 
@@ -68,46 +72,46 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
                         && TextUtils.isEmpty(editTextTime.getText().toString().trim())
                         && TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
 
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
 
                     return;
                 }
                 if (TextUtils.isEmpty(editTextQuantity.getText().toString().trim()) && TextUtils.isEmpty(editTextInitial.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
 
                     return;
                 }
 
                 if (TextUtils.isEmpty(editTextInitial.getText().toString().trim()) && TextUtils.isEmpty(editTextTime.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
 
                     return;
                 }
                 if (TextUtils.isEmpty(editTextTime.getText().toString().trim()) && TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
 
                     return;
                 }
 
                 if (TextUtils.isEmpty(editTextQuantity.getText().toString().trim()) && TextUtils.isEmpty(editTextTime.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
 
                     return;
                 }
                 if (TextUtils.isEmpty(editTextQuantity.getText().toString().trim()) && TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
 
                     return;
                 }
 
                 if (TextUtils.isEmpty(editTextInitial.getText().toString().trim()) && TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
 
                     return;
                 }
 
                 if (TextUtils.isEmpty(editTextQuantity.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
                     InitialValue = Double.parseDouble(editTextInitial.getText().toString().trim());
                     TimeValue = Double.parseDouble(editTextTime.getText().toString().trim());
                     HalfLifeValue = Double.parseDouble(editTextHalfLife.getText().toString().trim());
@@ -133,7 +137,7 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
 
 
                 if (TextUtils.isEmpty(editTextInitial.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
                     QuantityValue = Double.parseDouble(editTextQuantity.getText().toString().trim());
                     TimeValue = Double.parseDouble(editTextTime.getText().toString().trim());
                     HalfLifeValue = Double.parseDouble(editTextHalfLife.getText().toString().trim());
@@ -146,7 +150,7 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
 
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
 
                     QuantityValue = Double.parseDouble(editTextQuantity.getText().toString().trim());
                     TimeValue = Double.parseDouble(editTextTime.getText().toString().trim());
@@ -158,7 +162,7 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(editTextTime.getText().toString().trim())) {
 
-                    Toast.makeText(HalfLifeCalculatorCalci.this, "Please provide any Three values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Please provide any Three values", Toast.LENGTH_SHORT).show();
 
                     QuantityValue = Double.parseDouble(editTextQuantity.getText().toString().trim());
                     HalfLifeValue = Double.parseDouble(editTextHalfLife.getText().toString().trim());
@@ -182,8 +186,16 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
                 editTextHalfLife.setText("");
             }
         });
+        return  view;
     }
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
 
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -193,8 +205,8 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
-            Intent intent=new Intent(HalfLifeCalculatorCalci.this,HalfLifeCalci.class);
-            finish();
+            Intent intent=new Intent(getActivity(),HalfLifeCalci.class);
+          //  finish();
             startActivity(intent);
 
 
@@ -203,7 +215,7 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+  /*  @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
@@ -215,7 +227,7 @@ public class HalfLifeCalculatorCalci extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
 }
 

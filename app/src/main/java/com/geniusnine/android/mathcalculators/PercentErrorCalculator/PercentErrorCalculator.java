@@ -1,5 +1,6 @@
 package com.geniusnine.android.mathcalculators.PercentErrorCalculator;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -46,7 +48,8 @@ public class PercentErrorCalculator extends AppCompatActivity {
         buttonCalculte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 if(TextUtils.isEmpty(editTextobservedValue.getText().toString().trim())){
                     editTextobservedValue.setError("Enter the Observed Value");
                     return;

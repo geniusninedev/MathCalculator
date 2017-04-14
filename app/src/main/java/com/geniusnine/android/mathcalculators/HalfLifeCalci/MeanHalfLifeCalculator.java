@@ -1,14 +1,13 @@
 package com.geniusnine.android.mathcalculators.HalfLifeCalci;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,29 +16,30 @@ import android.widget.Toast;
 
 import com.geniusnine.android.mathcalculators.R;
 
-public class MeanHalfLifeCalculator extends AppCompatActivity {
+public class MeanHalfLifeCalculator extends android.support.v4.app.Fragment {
 
     TextView textViewHalf,textViewMeanLife,textViewDecayConstant;
     EditText editTextHalf,editTextMeanLife,editTextDecayConstant;
     double HalfValue,MeanLifeValue,DecayConstantValue;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mean_half_life_calculator);
-        getSupportActionBar().setHomeButtonEnabled(true);
-
-        textViewHalf=(TextView)findViewById(R.id.textViewHalf);
-        textViewMeanLife=(TextView)findViewById(R.id.textViewMeanLife);
-        textViewDecayConstant=(TextView)findViewById(R.id.textViewDecay);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        editTextHalf=(EditText) findViewById(R.id.editTextHalf);
-        editTextMeanLife=(EditText) findViewById(R.id.editTextMeanLife);
-        editTextDecayConstant=(EditText) findViewById(R.id.editTextDecay);
+        View view = inflater.inflate(R.layout.activity_mean_half_life_calculator, container, false);
+
+        textViewHalf=(TextView)view.findViewById(R.id.textViewHalf);
+        textViewMeanLife=(TextView)view.findViewById(R.id.textViewMeanLife);
+        textViewDecayConstant=(TextView)view.findViewById(R.id.textViewDecay);
 
 
-        Button buttonCalculate=(Button)findViewById(R.id.buttonCalculateOne);
-        Button buttonClear=(Button)findViewById(R.id.buttonClearSecond);
+        editTextHalf=(EditText)view. findViewById(R.id.editTextHalf);
+        editTextMeanLife=(EditText)view. findViewById(R.id.editTextMeanLife);
+        editTextDecayConstant=(EditText)view. findViewById(R.id.editTextDecay);
+
+
+        Button buttonCalculate=(Button)view.findViewById(R.id.buttonCalculateOne);
+        Button buttonClear=(Button)view.findViewById(R.id.buttonClearSecond);
 
 
         buttonCalculate.setOnClickListener(new View.OnClickListener() {
@@ -51,21 +51,18 @@ public class MeanHalfLifeCalculator extends AppCompatActivity {
             public void onClick(View v) {
 
                 MeanHalfLifeCalci MeanHalfLifeCalci=new MeanHalfLifeCalci();
-
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                //Toast.makeText(getApplicationContext(),"Enter Any One Value",Toast.LENGTH_LONG).show();
+hideKeyboard();
 
                 if (TextUtils.isEmpty(editTextHalf.getText().toString().trim())&&TextUtils.isEmpty(editTextMeanLife.getText().toString().trim())
                         &&TextUtils.isEmpty(editTextDecayConstant.getText().toString().trim())) {
 
-                    Toast.makeText(MeanHalfLifeCalculator.this,"Please provide any One value",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any One value",Toast.LENGTH_SHORT).show();
 
                     return;
                 }
 
                 if (TextUtils.isEmpty(editTextHalf.getText().toString().trim())&&TextUtils.isEmpty(editTextMeanLife.getText().toString().trim())){
-                    Toast.makeText(MeanHalfLifeCalculator.this,"Please provide any One values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any One values",Toast.LENGTH_SHORT).show();
                     DecayConstantValue = Double.parseDouble(editTextDecayConstant.getText().toString().trim());
 
 
@@ -77,7 +74,7 @@ public class MeanHalfLifeCalculator extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(editTextMeanLife.getText().toString().trim())&&TextUtils.isEmpty(editTextDecayConstant.getText().toString().trim())){
-                    Toast.makeText(MeanHalfLifeCalculator.this,"Please provide any One values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any One values",Toast.LENGTH_SHORT).show();
                     HalfValue = Double.parseDouble(editTextHalf.getText().toString().trim());
 
 
@@ -89,7 +86,7 @@ public class MeanHalfLifeCalculator extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(editTextHalf.getText().toString().trim())&&TextUtils.isEmpty(editTextDecayConstant.getText().toString().trim())){
-                    Toast.makeText(MeanHalfLifeCalculator.this,"Please provide any One values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any One values",Toast.LENGTH_SHORT).show();
                     MeanLifeValue = Double.parseDouble(editTextMeanLife.getText().toString().trim());
 
 
@@ -103,23 +100,23 @@ public class MeanHalfLifeCalculator extends AppCompatActivity {
 
     if(!editTextHalf.getText().toString().trim().equals("") && !editTextDecayConstant.getText().toString().trim().equals("") &&
             !editTextMeanLife.getText().toString().trim().equals("") ){
-                  Toast.makeText(MeanHalfLifeCalculator.this,"Please provide any One values",Toast.LENGTH_SHORT).show();
+                  Toast.makeText(getActivity(),"Please provide any One values",Toast.LENGTH_SHORT).show();
             return;
         }
 
                 if(!editTextHalf.getText().toString().trim().equals("") && !editTextDecayConstant.getText().toString().trim().equals("") &&
                         editTextMeanLife.getText().toString().trim().equals("") ){
-                    Toast.makeText(MeanHalfLifeCalculator.this,"Please provide any One values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any One values",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(editTextHalf.getText().toString().trim().equals("") && !editTextDecayConstant.getText().toString().trim().equals("") &&
                         !editTextMeanLife.getText().toString().trim().equals("") ){
-                    Toast.makeText(MeanHalfLifeCalculator.this,"Please provide any One values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any One values",Toast.LENGTH_SHORT).show();
                     return;
                 }  if(!editTextHalf.getText().toString().trim().equals("") && editTextDecayConstant.getText().toString().trim().equals("") &&
                         !editTextMeanLife.getText().toString().trim().equals("") ){
-                    Toast.makeText(MeanHalfLifeCalculator.this,"Please provide any One values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any One values",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -139,24 +136,32 @@ public class MeanHalfLifeCalculator extends AppCompatActivity {
                 editTextMeanLife.setText("");
             }
         });
+        return  view;
 
     }
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
 
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            Intent intent=new Intent(MeanHalfLifeCalculator.this,HalfLifeCalci.class);
-            finish();
+            Intent intent=new Intent(getActivity(),HalfLifeCalci.class);
+          //  finish();
             startActivity(intent);
 
         }
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+ /*   @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
@@ -167,7 +172,7 @@ public class MeanHalfLifeCalculator extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);

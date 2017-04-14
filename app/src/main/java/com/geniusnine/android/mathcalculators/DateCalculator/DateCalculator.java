@@ -44,15 +44,34 @@ public class DateCalculator extends AppCompatActivity {
         resultText = (TextView)findViewById(R.id.txtResult);
 
 
-
     }
-
 
     public int calculateYears(int s, int e)
     {
-        int y = 0;
+        if(monthStart.getText().toString().trim().equals("")){
+            monthStart.setError("Enter Month");
+        }
+        if(dayStart.getText().toString().trim().equals("")){
+            dayStart.setError("Enter Day");
+        }
+        if(yearStart.getText().toString().trim().equals("")){
+            yearStart.setError("Enter Year");
+        }
 
-        if (s < e)
+
+        if(monthEnd.getText().toString().trim().equals("")){
+            monthEnd.setError("Enter Month");
+        }
+        if(dayEnd.getText().toString().trim().equals("")){
+            dayEnd.setError("Enter Day");
+        }
+        if(yearEnd.getText().toString().trim().equals("")){
+            yearEnd.setError("Enter Year");
+        }
+
+            int y = 0;
+
+           if (s < e)
         {
             y = yE - yS;
         }
@@ -73,78 +92,101 @@ public class DateCalculator extends AppCompatActivity {
         }
 
         return y;
+
     }
 
-    public int calculateDays(int s, int e, int dS, int dE)
-    {
-        int d = 0;
+    public int calculateDays(int s, int e, int dS, int dE) {
 
-        if (s < e)
-        {
-            for (int i = 0; i < monthDays.length; i++)
-            {
-                if (monthKeys[i] == s)
-                {
-                    d = d + (monthDays[i] - dS);
-                }
-                else if (monthKeys[i] > s && monthKeys[i] < e)
-                {
-                    d = d + monthDays[i];
-                }
-                else if (monthKeys[i] == e)
-                {
-                    d = d + dE;
-                }
-            }
+        if(monthStart.getText().toString().trim().equals("")){
+            monthStart.setError("Enter Month");
         }
-        else if (e < s)
-        {
-            int days_passed_A = 0;
-
-            for (int i = 0; i < monthDays.length; i++)
-            {
-                if (monthKeys[i] == s)
-                {
-                    d = d + (monthDays[i] - dS);
-                }
-                else if (monthKeys[i] > s)
-                {
-                    d = d + (monthDays[i]);
-                }
-            }
-
-            for (int i = 0; i < monthDays.length; i++)
-            {
-                if (monthKeys[i] == e)
-                {
-                    days_passed_A = days_passed_A + dE;
-                }
-                else if (monthKeys[i] < e)
-                {
-                    days_passed_A = days_passed_A + monthDays[i];
-                }
-            }
-
-            d = d + days_passed_A;
+        if(dayStart.getText().toString().trim().equals("")){
+            dayStart.setError("Enter Day");
         }
-        else if (e == s)
-        {
-            if (dE >= dS)
-            {
-                d = d + (Math.abs(dE - dS));
-            }
-            else
-            {
-                d = d + (365 - Math.abs(dE - dS));
-            }
-
+        if(yearStart.getText().toString().trim().equals("")){
+            yearStart.setError("Enter Year");
         }
 
-        return d;
-    }
+
+        if(monthEnd.getText().toString().trim().equals("")){
+            monthEnd.setError("Enter Month");
+        }
+        if(dayEnd.getText().toString().trim().equals("")){
+            dayEnd.setError("Enter Day");
+        }
+        if(yearEnd.getText().toString().trim().equals("")){
+            yearEnd.setError("Enter Year");
+        }
+            int d = 0;
+
+            if (s < e) {
+                for (int i = 0; i < monthDays.length; i++) {
+                    if (monthKeys[i] == s) {
+                        d = d + (monthDays[i] - dS);
+                    } else if (monthKeys[i] > s && monthKeys[i] < e) {
+                        d = d + monthDays[i];
+                    } else if (monthKeys[i] == e) {
+                        d = d + dE;
+                    }
+                }
+            }
+        else if (e < s) {
+                int days_passed_A = 0;
+
+                for (int i = 0; i < monthDays.length; i++) {
+                    if (monthKeys[i] == s) {
+                        d = d + (monthDays[i] - dS);
+                    } else if (monthKeys[i] > s) {
+                        d = d + (monthDays[i]);
+                    }
+                }
+
+                for (int i = 0; i < monthDays.length; i++) {
+                    if (monthKeys[i] == e) {
+                        days_passed_A = days_passed_A + dE;
+                    } else if (monthKeys[i] < e) {
+                        days_passed_A = days_passed_A + monthDays[i];
+                    }
+                }
+
+                d = d + days_passed_A;
+            } else if (e == s) {
+                if (dE >= dS) {
+                    d = d + (Math.abs(dE - dS));
+                } else {
+                    d = d + (365 - Math.abs(dE - dS));
+                }
+
+            }
+
+            return d;
+
+        }
+
 
     public int findMonthKey(String m)
     {
+
+        if(monthStart.getText().toString().trim().equals("")){
+            monthStart.setError("Enter Month");
+        }
+        if(dayStart.getText().toString().trim().equals("")){
+            dayStart.setError("Enter Day");
+        }
+        if(yearStart.getText().toString().trim().equals("")){
+            yearStart.setError("Enter Year");
+        }
+
+
+        if(monthEnd.getText().toString().trim().equals("")){
+            monthEnd.setError("Enter Month");
+        }
+        if(dayEnd.getText().toString().trim().equals("")){
+            dayEnd.setError("Enter Day");
+        }
+        if(yearEnd.getText().toString().trim().equals("")){
+            yearEnd.setError("Enter Year");
+        }
         int key = 0;
         System.out.println(m);
 
@@ -165,6 +207,7 @@ public class DateCalculator extends AppCompatActivity {
 
         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
         if(monthStart.getText().toString().trim().equals("")){
             monthStart.setError("Enter Month");
         }

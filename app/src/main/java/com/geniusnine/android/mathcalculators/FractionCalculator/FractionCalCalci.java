@@ -2,105 +2,78 @@ package com.geniusnine.android.mathcalculators.FractionCalculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
-
-import java.util.ArrayList;
 
 /**
  * Created by Dev on 12-04-2017.
  */
 
-public class FractionCalCalci extends AppCompatActivity {
+public class FractionCalCalci extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
+    private TabLayout tabLayout;
+    FrameLayout simpleFrameLayout;
+    //This is our viewPager
 
-    Spinner halfLifeSpinner;
-
+    private FragmentPagerAdapter mPagerAdapter;
+    private ViewPager viewPager;
+    Button classOne,classTwo,classThree,classFour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_half_life_calci);
-
-
-        halfLifeSpinner = (Spinner) findViewById(R.id.spinnerHalfLife);
+        setContentView(R.layout.activity_fractioncal_calci);
 
 
 
 
 
 
-        ArrayList area = new ArrayList();
-        area.add("Select");
-        area.add("Fraction Calculator");
-        area.add("Simplify Fractions Calculator");
-        area.add("Decimal to Fraction Calculator ");
-        area.add("Fraction to Decimal Calculator");
+            //Initializing the tablayout
+            mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+                private final Fragment[] mFragments = new Fragment[]{
+                        new FractionCalculator(),
+                        new SimplifyFractionsCalculator(), new DecimaltoFractionCalci(),new FractiontoDecimalCalci()
+                };
+                private final String[] mFragmentNames = new String[]{
+                        getString(R.string.app_name27),
+                        getString(R.string.app_name21),
+                        getString(R.string.app_name17),
+                        getString(R.string.app_name22),
+                };
 
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, area);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        halfLifeSpinner.setAdapter(dataAdapter);
-
-        halfLifeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-                if (position == 1) {
-
-
-                    Intent meanHalfLife = new Intent(getApplicationContext(), FractionCalculator.class);
-                    finish();
-                    startActivity(meanHalfLife);
-
-
+                @Override
+                public Fragment getItem(int position) {
+                    return mFragments[position];
                 }
 
-                if (position == 2) {
-
-
-                    Intent meanHalfLife = new Intent(getApplicationContext(), SimplifyFractionsCalculator.class);
-                    startActivity(meanHalfLife);
-                    finish();
-
-
-                }
-                if (position == 3) {
-
-
-                    Intent meanHalfLife = new Intent(getApplicationContext(), DecimaltoFractionCalci.class);
-                    startActivity(meanHalfLife);
-                    finish();
-
-
-                }
-                if (position == 4) {
-
-
-                    Intent meanHalfLife = new Intent(getApplicationContext(), FractiontoDecimalCalci.class);
-                    startActivity(meanHalfLife);
-                    finish();
-
-
+                @Override
+                public int getCount() {
+                    return mFragments.length;
                 }
 
+                public CharSequence getPageTitle(int position) {
+                    return mFragmentNames[position];
+                }
 
-            }
+            };
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            viewPager = (ViewPager) findViewById(R.id.pager);
+            viewPager.setAdapter(mPagerAdapter);
+            TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayoutFraction);
+            tabLayout.setupWithViewPager(viewPager);
 
-            }
-        });
+
+
     }
 
 
@@ -144,6 +117,20 @@ public class FractionCalCalci extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
+    }
 }
 
 

@@ -1,13 +1,12 @@
 package com.geniusnine.android.mathcalculators.FractionCalculator;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,26 +14,30 @@ import android.widget.TextView;
 
 import com.geniusnine.android.mathcalculators.R;
 
-public class DecimaltoFractionCalci extends AppCompatActivity {
+public class DecimaltoFractionCalci  extends android.support.v4.app.Fragment{
     EditText decimalNumber,editTextAnswer;
     TextView textViewAnswer,textViewAnswerDecimal;
     double DecimalNumberValue;
-    @Override
+   /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_decimalto_fraction_calci);
+        setContentView(R.layout.activity_decimalto_fraction_calci);*/
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
+        View view = inflater.inflate(R.layout.activity_decimalto_fraction_calci, container, false);
 
-        decimalNumber=(EditText)findViewById(R.id.editTextdecimalNumber);
-        editTextAnswer=(EditText)findViewById(R.id.editTextAnswer);
+        decimalNumber=(EditText)view.findViewById(R.id.editTextdecimalNumber);
+        editTextAnswer=(EditText)view.findViewById(R.id.editTextAnswer);
 
 
-        textViewAnswer=(TextView)findViewById(R.id.textViewAnswer);
-        textViewAnswerDecimal=(TextView)findViewById(R.id.textViewResultDecimal);
+        textViewAnswer=(TextView)view.findViewById(R.id.textViewAnswer);
+        textViewAnswerDecimal=(TextView)view.findViewById(R.id.textViewResultDecimal);
 
-        Button caculate=(Button)findViewById(R.id.calculateButton);
-        Button reset=(Button)findViewById(R.id.resetButton);
+        Button caculate=(Button)view.findViewById(R.id.calculateButton);
+        Button reset=(Button)view.findViewById(R.id.resetButton);
 
 
         caculate.setOnClickListener(new View.OnClickListener() {
@@ -42,8 +45,9 @@ public class DecimaltoFractionCalci extends AppCompatActivity {
             public void onClick(View v) {
 
                 FractionCalci fractionCalci=new FractionCalci();
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                hideKeyboard();
+              /*  InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);*/
                 if(decimalNumber.getText().toString().trim().equals("")){
                     decimalNumber.setError("Enter The Decimal Number");
                 }
@@ -70,24 +74,31 @@ public class DecimaltoFractionCalci extends AppCompatActivity {
                 textViewAnswerDecimal.setVisibility(View.GONE);
             }
         });
-
+return  view;
     }
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
 
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            Intent intent=new Intent(DecimaltoFractionCalci.this,FractionCalCalci.class);
-            finish();
+            Intent intent=new Intent(getActivity(),FractionCalCalci.class);
+          //  finish();
             startActivity(intent);
 
         }
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+  /*  @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
@@ -97,7 +108,7 @@ public class DecimaltoFractionCalci extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);

@@ -1,9 +1,13 @@
 package com.geniusnine.android.mathcalculators.GCFCalculator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -11,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
 
 public class GCFCalculator extends AppCompatActivity {
@@ -1259,4 +1264,46 @@ public class GCFCalculator extends AppCompatActivity {
         });
 
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home) {
+            Intent intent=new Intent(GCFCalculator.this,MainActivity.class);
+            //    finish();
+            startActivity(intent);
+
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch(keyCode){
+            case KeyEvent.KEYCODE_BACK:
+
+                Intent intent=new Intent(GCFCalculator.this,MainActivity.class);
+                finish();
+                startActivity(intent);
+
+                return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }

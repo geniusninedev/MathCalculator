@@ -1,13 +1,12 @@
 package com.geniusnine.android.mathcalculators.RootCalculator;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,20 +14,21 @@ import android.widget.TextView;
 
 import com.geniusnine.android.mathcalculators.R;
 
-public class SquareRootCalculator extends AppCompatActivity {
+public class SquareRootCalculator extends android.support.v4.app.Fragment{
     TextView textViewSquareRoot;
     EditText editTextSquareRoot;
     int squareRootNumber;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_square_root_calculator);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        textViewSquareRoot=(TextView)findViewById(R.id.textViewSquareRoot);
-        editTextSquareRoot=(EditText) findViewById(R.id.editTextSquareRoot);
 
-        Button calculate=(Button)findViewById(R.id.buttonCalculate);
-        Button clear=(Button)findViewById(R.id.buttonReset);
+        View view = inflater.inflate(R.layout.activity_square_root_calculator, container, false);
+
+        textViewSquareRoot=(TextView)view.findViewById(R.id.textViewSquareRoot);
+        editTextSquareRoot=(EditText) view.findViewById(R.id.editTextSquareRoot);
+
+        Button calculate=(Button)view.findViewById(R.id.buttonCalculate);
+        Button clear=(Button)view.findViewById(R.id.buttonReset);
 
 
         calculate.setOnClickListener(new View.OnClickListener() {
@@ -36,8 +36,8 @@ public class SquareRootCalculator extends AppCompatActivity {
             public void onClick(View v) {
 
                 RootCalci squareRootCalculator=new RootCalci();
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                hideKeyboard();
+
                 if(editTextSquareRoot.getText().toString().trim().equals("")){
                     editTextSquareRoot.setError("Enter The Number");
                 }
@@ -55,26 +55,33 @@ public class SquareRootCalculator extends AppCompatActivity {
                 editTextSquareRoot.setText("");
             }
         });
-
+return  view;
     }
 
 
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
 
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            Intent intent=new Intent(SquareRootCalculator.this,RootCalCalci.class);
-            finish();
+            Intent intent=new Intent(getActivity(),RootCalCalci.class);
+           // finish();
             startActivity(intent);
 
         }
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+   /* @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
@@ -84,7 +91,7 @@ public class SquareRootCalculator extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);

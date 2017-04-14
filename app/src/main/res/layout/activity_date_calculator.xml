@@ -10,18 +10,13 @@
     android:id="@+id/activity_date_calculator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="com.geniusnine.android.mathcalculators.DateCalculator.DateCalculator">
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+       >
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -30,60 +25,68 @@
 
             tools:context=".MainActivity" >
 
-            <TextView android:text="Date Duration Calculator"
+ <!--           <TextView android:text="Date Duration Calculator"
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textColor="#000000" />
-
+-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="22dp"
                 android:text="STARTING DATE"
                 android:gravity="center"
                 android:textStyle="bold"
+                android:fontFamily="serif-monospace"
                 android:id="@+id/txtStartingDate"
                 android:textColor="#000000" />
 
-            <LinearLayout android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginLeft="30dp"
-                android:background="@android:color/holo_red_dark"
-                android:weightSum="1">
+
+
+                android:layout_marginTop="20dp"
+                android:background="@android:color/darker_gray"
+                android:weightSum="3">
+
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:inputType="text"
                     android:id="@+id/monthStart"
                     android:ems="5"
-                    android:gravity="center"
+
                     android:layout_marginRight="10dp"
-                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
                     android:background="@android:drawable/editbox_background"
-                    android:layout_weight="0.75"
+                    android:layout_weight="1"
                     android:hint="Month" />
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/dayStart"
                     android:inputType="number"
                     android:layout_marginRight="10dp"
                     android:ems="3"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:autoText="false"
                     android:background="@android:drawable/editbox_background"
                     android:hint="Date" />
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:id="@+id/yearStart"
                     android:ems="5"
                     android:gravity="center"
+                    android:layout_weight="1"
+
                     android:background="@android:drawable/editbox_background"
                     android:hint="Year" />
             </LinearLayout>
@@ -92,18 +95,23 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="22dp"
                 android:textStyle="bold"
+
+                android:layout_marginTop="10dp"
                 android:text="ENDING DATE"
                 android:id="@+id/textView"
                 android:gravity="center"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:fontFamily="serif-monospace" />
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginLeft="30dp"
-                android:background="@android:color/holo_red_dark">
+               android:weightSum="3"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/darker_gray">
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,40 +120,44 @@
                     android:ems="5"
                     android:gravity="center"
                     android:layout_marginRight="10dp"
-                    android:layout_gravity="center_horizontal"
+               android:layout_weight="1"
                     android:background="@android:drawable/editbox_background"
                     android:hint="Month" />
-                <EditText android:layout_width="wrap_content"
+
+                <EditText android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/dayEnd"
                     android:inputType="number"
                     android:layout_marginRight="10dp"
                     android:ems="3"
                     android:gravity="center"
+                    android:layout_weight="1"
                     android:background="@android:drawable/editbox_background"
                     android:hint="Date" />
 
-                <EditText android:layout_width="wrap_content"
+                <EditText android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:id="@+id/yearEnd"
                     android:ems="5"
                     android:gravity="center"
+                    android:layout_weight="1"
                     android:background="@android:drawable/editbox_background"
                     android:hint="Year" />
             </LinearLayout>
 
 
             <Button
-                android:layout_width="131dp"
-                android:layout_height="35dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:id="@+id/btnCalculate"
                 android:text="calculate"
                 android:textStyle="bold"
+                android:textSize="20dp"
                 android:textColor="@android:color/background_light"
                 android:background="@color/colorPrimary"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:onClick="calculateDate" />
 
             <TextView android:layout_width="300dp"
@@ -157,7 +169,7 @@
                 android:text="0 years, 0 days."
                 android:id="@+id/txtResult"
                 android:layout_gravity="center_horizontal"
-                android:textColor="#fff8ff13"
+                android:textColor="@android:color/background_light"
                 android:background="@android:color/darker_gray" />
         </LinearLayout>
     </ScrollView>

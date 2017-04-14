@@ -1,13 +1,12 @@
 package com.geniusnine.android.mathcalculators.RatioCalculator;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,24 +14,27 @@ import android.widget.Toast;
 
 import com.geniusnine.android.mathcalculators.R;
 
-public class RatioCalculator extends AppCompatActivity {
+public class RatioCalculator extends android.support.v4.app.Fragment {
     EditText editTextFirstValue,editTextSecondValue,editTextThirdValue,editTextFourthValue;
     double firstValue,secondValue,thirdValue,fourthValue;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ratio_calculator);
-
-        editTextFirstValue=(EditText)findViewById(R.id.editTextFirstValue);
-        editTextSecondValue=(EditText)findViewById(R.id.editTextSecondValue);
-        editTextThirdValue=(EditText)findViewById(R.id.editTextThirdValue);
-        editTextFourthValue=(EditText)findViewById(R.id.editTextFourthValue);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
+        View view = inflater.inflate(R.layout.activity_ratio_calculator, container, false);
 
 
-        Button calculate=(Button)findViewById(R.id.buttonCalculate);
-        Button clear=(Button)findViewById(R.id.buttonClear);
+        editTextFirstValue=(EditText)view.findViewById(R.id.editTextFirstValue);
+        editTextSecondValue=(EditText)view.findViewById(R.id.editTextSecondValue);
+        editTextThirdValue=(EditText)view.findViewById(R.id.editTextThirdValue);
+        editTextFourthValue=(EditText)view.findViewById(R.id.editTextFourthValue);
+
+
+
+
+        Button calculate=(Button)view.findViewById(R.id.buttonCalculate);
+        Button clear=(Button)view.findViewById(R.id.buttonClear);
 
 
 
@@ -41,52 +43,52 @@ public class RatioCalculator extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 RatioCalci ratioCalci=new RatioCalci();
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
+                hideKeyboard();
                 if (TextUtils.isEmpty(editTextFirstValue.getText().toString().trim())&&TextUtils.isEmpty(editTextSecondValue.getText().toString().trim())
                         &&TextUtils.isEmpty(editTextThirdValue.getText().toString().trim())
                         &&TextUtils.isEmpty(editTextFourthValue.getText().toString().trim())) {
 
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     return;
                 }
 
                 if (TextUtils.isEmpty(editTextFirstValue.getText().toString().trim())&&TextUtils.isEmpty(editTextSecondValue.getText().toString().trim())){
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     return;
                 }
 
                 if (TextUtils.isEmpty(editTextSecondValue.getText().toString().trim())&&TextUtils.isEmpty(editTextThirdValue.getText().toString().trim())) {
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     return;
                 }
                 if (TextUtils.isEmpty(editTextThirdValue.getText().toString().trim())&&TextUtils.isEmpty(editTextFourthValue.getText().toString().trim())) {
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     return;
                 }
 
                 if (TextUtils.isEmpty(editTextFirstValue.getText().toString().trim())&&TextUtils.isEmpty(editTextThirdValue.getText().toString().trim())) {
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     return;
                 }
                 if (TextUtils.isEmpty(editTextFirstValue.getText().toString().trim())&&TextUtils.isEmpty(editTextFourthValue.getText().toString().trim())) {
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     return;
                 }
 
                 if (TextUtils.isEmpty(editTextSecondValue.getText().toString().trim())&&TextUtils.isEmpty(editTextFourthValue.getText().toString().trim())) {
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     return;
                 }
                 if (TextUtils.isEmpty(editTextFirstValue.getText().toString().trim())) {
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     secondValue = Double.parseDouble(editTextSecondValue.getText().toString().trim());
                     thirdValue = Double.parseDouble(editTextThirdValue.getText().toString().trim());
@@ -98,7 +100,7 @@ public class RatioCalculator extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(editTextSecondValue.getText().toString().trim())) {
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     firstValue = Double.parseDouble(editTextFirstValue.getText().toString().trim());
                     thirdValue = Double.parseDouble(editTextThirdValue.getText().toString().trim());
@@ -109,7 +111,7 @@ public class RatioCalculator extends AppCompatActivity {
                     editTextSecondValue.setText(String.valueOf(result));
                     return;
                 } if (TextUtils.isEmpty(editTextThirdValue.getText().toString().trim())) {
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
                     firstValue = Double.parseDouble(editTextFirstValue.getText().toString().trim());
                     secondValue = Double.parseDouble(editTextSecondValue.getText().toString().trim());
                     fourthValue = Double.parseDouble(editTextFourthValue.getText().toString().trim());
@@ -120,7 +122,7 @@ public class RatioCalculator extends AppCompatActivity {
 
                     return;
                 } if (TextUtils.isEmpty(editTextFourthValue.getText().toString().trim())) {
-                    Toast.makeText(RatioCalculator.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Please provide any Three values",Toast.LENGTH_SHORT).show();
 
                     firstValue = Double.parseDouble(editTextFirstValue.getText().toString().trim());
                     secondValue = Double.parseDouble(editTextSecondValue.getText().toString().trim());
@@ -145,8 +147,16 @@ public class RatioCalculator extends AppCompatActivity {
                 editTextFourthValue.setText("");
             }
         });
+        return  view;
     }
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
 
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -154,8 +164,8 @@ public class RatioCalculator extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
-            Intent intent=new Intent(RatioCalculator.this,RatioCalCalci.class);
-            finish();
+            Intent intent=new Intent(getActivity(),RatioCalCalci.class);
+            //finish();
             startActivity(intent);
 
 
@@ -164,18 +174,18 @@ public class RatioCalculator extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+  /*  @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
 
-                Intent intent=new Intent(RatioCalculator.this,RatioCalCalci.class);
-                finish();
+                Intent intent=new Intent(getActivity(),RatioCalCalci.class);
+               // finish();
                 startActivity(intent);
 
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
 }

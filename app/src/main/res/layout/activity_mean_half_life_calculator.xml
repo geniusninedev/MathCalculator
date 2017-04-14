@@ -13,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:text="Half Life, Mean Lifetime, and Decay Constant Conversion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textViewSecondTitle"
-            android:textSize="18dp"
+            android:textSize="20dp"
             android:textColor="#000000"
             android:gravity="center"
             android:textStyle="bold"

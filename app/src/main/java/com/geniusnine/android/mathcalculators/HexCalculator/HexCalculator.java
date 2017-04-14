@@ -1,12 +1,11 @@
 package com.geniusnine.android.mathcalculators.HexCalculator;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,65 +13,60 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
 
 import java.util.ArrayList;
 
-public class HexCalculator extends AppCompatActivity {
-    EditText valueOne,valueTwo,editTextAnswer;
+public class HexCalculator extends android.support.v4.app.Fragment {
+    EditText valueOne, valueTwo, editTextAnswer;
     Spinner mathOperations;
-    EditText hexValue,decimalValue;
-    TextView textViewResult,textViewBinaryResult,textViewHexadecimalResult,textViewOctalResult,textViewHexValue;
+    EditText hexValue, decimalValue;
+    TextView textViewResult, textViewBinaryResult, textViewHexadecimalResult, textViewOctalResult, textViewHexValue;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hex_calculator);
-
-        valueOne=(EditText)findViewById(R.id.editTextValueOne);
-        valueTwo=(EditText)findViewById(R.id.editTextValueTwo);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-        mathOperations=(Spinner)findViewById(R.id.spinnerOperations);
-        textViewResult=(TextView)findViewById(R.id.textViewResult);
-        textViewBinaryResult=(TextView)findViewById(R.id.textViewBinaryResult);
-        textViewHexadecimalResult=(TextView)findViewById(R.id.textViewHexResult);
-        textViewOctalResult=(TextView)findViewById(R.id.textViewOctalResult);
+        View view = inflater.inflate(R.layout.activity_hex_calculator, container, false);
+
+        valueOne = (EditText) view.findViewById(R.id.editTextValueOne);
+        valueTwo = (EditText) view.findViewById(R.id.editTextValueTwo);
+
+
+        mathOperations = (Spinner) view.findViewById(R.id.spinnerOperations);
+        textViewResult = (TextView) view.findViewById(R.id.textViewResult);
+        textViewBinaryResult = (TextView) view.findViewById(R.id.textViewBinaryResult);
+        textViewHexadecimalResult = (TextView) view.findViewById(R.id.textViewHexResult);
+        textViewOctalResult = (TextView) view.findViewById(R.id.textViewOctalResult);
 
         //  textViewBinaryResult=(TextView)findViewById(R.id.textViewBinaryResult);
         //  textViewHexValue=(TextView)findViewById(R.id.textViewHexResult);
         //  textViewDecimalValue=(TextView)findViewById(R.id.textViewDecimal);*/
 
-        Button calculate=(Button)findViewById(R.id.buttonCalculate);
-        Button clear=(Button)findViewById(R.id.buttonClear);
-     /*  Button calci=(Button)findViewById(R.id.buttonCalci);
-        Button clearbutton=(Button)findViewById(R.id.clearButton);
-        Button calciDecimal=(Button)findViewById(R.id.buttonCalc);
-        Button clearDecimal=(Button)findViewById(R.id.clear);
-*/
+        Button calculate = (Button) view.findViewById(R.id.buttonCalculate);
+        Button clear = (Button) view.findViewById(R.id.buttonClear);
+
+
         ArrayList sign = new ArrayList();
         sign.add("+");
         sign.add("-");
         sign.add("*");
         sign.add("/");
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sign);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, sign);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mathOperations.setAdapter(dataAdapter);
 
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                hideKeyboard();
                 if (valueOne.getText().toString().trim().equals("")) {
                     valueOne.setError("Enter 1st Value");
-                }
-                else if (valueTwo.getText().toString().trim().equals("")) {
+                } else if (valueTwo.getText().toString().trim().equals("")) {
                     valueTwo.setError("Enter 2nd Value");
-                }
-
-                else {
+                } else {
                     HexCalci hexCalculations = new HexCalci();
 
                     textViewHexadecimalResult.setVisibility(View.VISIBLE);
@@ -85,10 +79,10 @@ public class HexCalculator extends AppCompatActivity {
 
                     if (mathOperations.getSelectedItem().toString().trim().equals("+")) {
 
-                        Double resultgrossDomesticProductValue = Double.valueOf(hexCalculations.HexSum(valueOneValue,valueTwoValue));
+                        Double resultgrossDomesticProductValue = Double.valueOf(hexCalculations.HexSum(valueOneValue, valueTwoValue));
                         textViewResult.setText("Decimal Value: " + resultgrossDomesticProductValue);
 
-                        String resultgrossDomesticProductValueHex =hexCalculations.binaryToHex(resultgrossDomesticProductValue);
+                        String resultgrossDomesticProductValueHex = hexCalculations.binaryToHex(resultgrossDomesticProductValue);
                         textViewHexadecimalResult.setText("Hexadecimal Value:" + resultgrossDomesticProductValueHex);
 
                         Double resultgrossDomesticProductValueBinary = Double.valueOf(hexCalculations.hexToBinary(resultgrossDomesticProductValue));
@@ -98,12 +92,12 @@ public class HexCalculator extends AppCompatActivity {
                         textViewOctalResult.setText("Octal Value: " + resultgrossDomesticProductValueOctal);
 
 
-                    }else if (mathOperations.getSelectedItem().toString().trim().equals("-")) {
+                    } else if (mathOperations.getSelectedItem().toString().trim().equals("-")) {
 
-                        Double resultgrossDomesticProductValue = Double.valueOf(hexCalculations.HexDiff(valueOneValue,valueTwoValue));
+                        Double resultgrossDomesticProductValue = Double.valueOf(hexCalculations.HexDiff(valueOneValue, valueTwoValue));
                         textViewResult.setText("Decimal Value: " + resultgrossDomesticProductValue);
 
-                        String resultgrossDomesticProductValueHex =hexCalculations.binaryToHex(resultgrossDomesticProductValue);
+                        String resultgrossDomesticProductValueHex = hexCalculations.binaryToHex(resultgrossDomesticProductValue);
                         textViewHexadecimalResult.setText("Hexadecimal Value:" + resultgrossDomesticProductValueHex);
 
                         Double resultgrossDomesticProductValueBinary = Double.valueOf(hexCalculations.hexToBinary(resultgrossDomesticProductValue));
@@ -112,13 +106,12 @@ public class HexCalculator extends AppCompatActivity {
                         Double resultgrossDomesticProductValueOctal = Double.valueOf(hexCalculations.dectoOctal(resultgrossDomesticProductValue));
                         textViewOctalResult.setText("Octal Value: " + resultgrossDomesticProductValueOctal);
 
-                    }
-                    else if (mathOperations.getSelectedItem().toString().trim().equals("*")) {
+                    } else if (mathOperations.getSelectedItem().toString().trim().equals("*")) {
 
-                        Double resultgrossDomesticProductValue = Double.valueOf(hexCalculations.HexProd(valueOneValue,valueTwoValue));
+                        Double resultgrossDomesticProductValue = Double.valueOf(hexCalculations.HexProd(valueOneValue, valueTwoValue));
                         textViewResult.setText("Decimal Value: " + resultgrossDomesticProductValue);
 
-                        String resultgrossDomesticProductValueHex =hexCalculations.binaryToHex(resultgrossDomesticProductValue);
+                        String resultgrossDomesticProductValueHex = hexCalculations.binaryToHex(resultgrossDomesticProductValue);
                         textViewHexadecimalResult.setText("Hexadecimal Value:" + resultgrossDomesticProductValueHex);
 
                         Double resultgrossDomesticProductValueBinary = Double.valueOf(hexCalculations.hexToBinary(resultgrossDomesticProductValue));
@@ -129,10 +122,10 @@ public class HexCalculator extends AppCompatActivity {
 
                     } else if (mathOperations.getSelectedItem().toString().trim().equals("/")) {
 
-                        Double resultgrossDomesticProductValue = Double.valueOf(hexCalculations.HexDiv(valueOneValue,valueTwoValue));
+                        Double resultgrossDomesticProductValue = Double.valueOf(hexCalculations.HexDiv(valueOneValue, valueTwoValue));
                         textViewResult.setText("Decimal Value: " + resultgrossDomesticProductValue);
 
-                        String resultgrossDomesticProductValueHex =hexCalculations.binaryToHex(resultgrossDomesticProductValue);
+                        String resultgrossDomesticProductValueHex = hexCalculations.binaryToHex(resultgrossDomesticProductValue);
                         textViewHexadecimalResult.setText("Hexadecimal Value:" + resultgrossDomesticProductValueHex);
 
                         Double resultgrossDomesticProductValueBinary = Double.valueOf(hexCalculations.hexToBinary(resultgrossDomesticProductValue));
@@ -142,9 +135,7 @@ public class HexCalculator extends AppCompatActivity {
                         Double resultgrossDomesticProductValueOctal = Double.valueOf(hexCalculations.dectoOctal(resultgrossDomesticProductValue));
                         textViewOctalResult.setText("Octal Value: " + resultgrossDomesticProductValueOctal);
 
-                    }
-
-                    else{
+                    } else {
 
                     }
 
@@ -175,8 +166,18 @@ public class HexCalculator extends AppCompatActivity {
                 // textViewBinaryResult.setText("");
             }
         });
+        return view;
+
     }
 
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
+
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -186,8 +187,8 @@ public class HexCalculator extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == android.R.id.home) {
-            Intent intent=new Intent(HexCalculator.this,MainActivity.class);
-            finish();
+            Intent intent=new Intent(getActivity(),HexCalCalci.class);
+
             startActivity(intent);
 
 
@@ -196,19 +197,20 @@ public class HexCalculator extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+
+   /* @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
 
-                Intent intent=new Intent(HexCalculator.this,MainActivity.class);
-                finish();
+                Intent intent=new Intent(getActivity(),HexCalCalci.class);
+
                 startActivity(intent);
 
                 return true;
         }
         return super.onKeyDown(keyCode, event);
     }
-
+*/
 }
 

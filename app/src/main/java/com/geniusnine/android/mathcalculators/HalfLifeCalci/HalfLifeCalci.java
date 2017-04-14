@@ -2,328 +2,74 @@ package com.geniusnine.android.mathcalculators.HalfLifeCalci;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.FrameLayout;
 
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
 
-import java.util.ArrayList;
+public class HalfLifeCalci extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
+    private TabLayout tabLayout;
 
-public class HalfLifeCalci extends AppCompatActivity {
-
-
-
+    //This is our viewPager
 
 
-    halfLifeCalculator HalfLifeCalci;
-    Spinner halfLifeSpinner;
+
+    private FragmentPagerAdapter mPagerAdapter;
+    private ViewPager viewPager;
+    FrameLayout simpleFrameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_half_life_calci);
 
-       /* textViewQuantity=(TextView)findViewById(R.id.textViewQuantity);
-        textViewInitial=(TextView)findViewById(R.id.textViewInitial);
-
-        textViewTime=(TextView)findViewById(R.id.textViewTime);
-        textViewHalfLife=(TextView)findViewById(R.id.textViewHalfLife);
-*/
-
-        halfLifeSpinner=(Spinner)findViewById(R.id.spinnerHalfLife);
 
 
 
 
-       /* editTextQuantity=(EditText) findViewById(R.id.editTextQuantity);
-        editTextInitial=(EditText)findViewById(R.id.editTextInitial);
-        editTextTime=(EditText)findViewById(R.id.editTextTime);
-        editTextHalfLife=(EditText)findViewById(R.id.editTextHalfLife);
-
-        Button calculate=(Button)findViewById(R.id.buttonCalculate);
-        Button clear=(Button)findViewById(R.id.buttonClear);*/
-
-        ArrayList area = new ArrayList();
-        area.add("Select");
-        area.add("Half Life Calculator");
-        area.add("Mean Half Life Calculator");
-
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, area);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        halfLifeSpinner.setAdapter(dataAdapter);
-
-        halfLifeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-            /*    if (position==0){
-
-*//*
-
-                    textViewQuantity.setVisibility(View.INVISIBLE);
-                    textViewInitial.setVisibility(View.INVISIBLE);
-                    textViewHalfLife.setVisibility(View.INVISIBLE);
-                    textViewTime.setVisibility(View.INVISIBLE);
-
-                    editTextQuantity.setVisibility(View.INVISIBLE);
-                    editTextInitial.setVisibility(View.INVISIBLE);
-                    editTextTime.setVisibility(View.INVISIBLE);
-                    editTextHalfLife.setVisibility(View.INVISIBLE);
-*//*
-
-
-
-
-
-                }*/
-                if (position==1){
-
-
-
-                    Intent meanHalfLife=new Intent(getApplicationContext(),HalfLifeCalculatorCalci.class);
-                    finish();
-                    startActivity(meanHalfLife);
-
-
+            //Initializing the tablayout
+            mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+                private final Fragment[] mFragments = new Fragment[] {
+                        new HalfLifeCalculatorCalci(),
+                        new MeanHalfLifeCalculator(),
+                };
+                private final String[] mFragmentNames = new String[] {
+                        getString(R.string.app_name15),
+                        getString(R.string.app_name14)
+                };
+                @Override
+                public Fragment getItem(int position) {
+                    return mFragments[position];
+                }
+                @Override
+                public int getCount() {
+                    return mFragments.length;
                 }
 
-                if (position==2){
-
-
-                    Intent meanHalfLife = new Intent(getApplicationContext(), MeanHalfLifeCalculator.class);
-                    startActivity(meanHalfLife);
-                    finish();
-
-
-
-
-
+                public CharSequence getPageTitle(int position) {
+                    return mFragmentNames[position];
                 }
 
+            };
 
-           /*     if (halfLifeSpinner.getSelectedItem().toString().trim().equals("Half Life Calculator")) {
+            viewPager = (ViewPager) findViewById(R.id.pager);
+            viewPager.setAdapter(mPagerAdapter);
+            TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayouthalf);
+            tabLayout.setupWithViewPager(viewPager);
 
 
-                    Intent meanHalfLife=new Intent(getApplicationContext(),HalfLifeCalci.class);
-                    finish();
-                    startActivity(meanHalfLife);
 
 
-                    textViewQuantity.setVisibility(View.VISIBLE);
-                    textViewInitial.setVisibility(View.VISIBLE);
-                    textViewHalfLife.setVisibility(View.VISIBLE);
-                    textViewTime.setVisibility(View.VISIBLE);
 
-                    editTextQuantity.setVisibility(View.VISIBLE);
-                    editTextInitial.setVisibility(View.VISIBLE);
-                    editTextTime.setVisibility(View.VISIBLE);
-                    editTextHalfLife.setVisibility(View.VISIBLE);
-
-
-
-
-
-
-                }
-
-              *//*  if (halfLifeSpinner.getSelectedItem().toString().trim().equals("Select")) {
-
-                    textViewQuantity.setVisibility(View.INVISIBLE);
-                    textViewInitial.setVisibility(View.INVISIBLE);
-                    textViewHalfLife.setVisibility(View.INVISIBLE);
-                    textViewTime.setVisibility(View.INVISIBLE);
-
-                    editTextQuantity.setVisibility(View.INVISIBLE);
-                    editTextInitial.setVisibility(View.INVISIBLE);
-                    editTextTime.setVisibility(View.INVISIBLE);
-                    editTextHalfLife.setVisibility(View.INVISIBLE);
-
-
-
-
-                }
-*//*
-               if (halfLifeSpinner.getSelectedItem().toString().trim().equals("Mean Half Life Calculator")) {
-
-
-                    Intent meanHalfLife = new Intent(getApplicationContext(), MeanHalfLifeCalculator.class);
-                    startActivity(meanHalfLife);
-                    finish();
-                }*/
-              /*  if (position==0){
-
-                   *//* editTextQuantity.setVisibility(View.VISIBLE);
-                    editTextInitial.setVisibility(View.VISIBLE);
-                    editTextTime.setVisibility(View.VISIBLE);
-                    editTextHalfLife.setVisibility(View.VISIBLE);
-
-                    textViewQuantity.setVisibility(View.INVISIBLE);
-                    textViewInitial.setVisibility(View.VISIBLE);
-                    textViewTime.setVisibility(View.VISIBLE);
-                    textViewQuantity.setVisibility(View.VISIBLE);*//*
-
-
-
-
-                }
-                else if (position==1){
-                    Intent meanHalfLife=new Intent(getApplicationContext(),HalfLifeCalci.class);
-                    startActivity(meanHalfLife);
-                    finish();
-                }*/
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        /*calculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                halfLifeCalculator HalfLifeCalci=new halfLifeCalculator();
-
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-
-                Toast.makeText(getApplicationContext(),"Enter Any Three Values",Toast.LENGTH_LONG).show();
-
-                if (TextUtils.isEmpty(editTextQuantity.getText().toString().trim())&&TextUtils.isEmpty(editTextInitial.getText().toString().trim())
-                        &&TextUtils.isEmpty(editTextTime.getText().toString().trim())
-                        &&TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
-
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-
-                    return;
-                }
-                if (TextUtils.isEmpty(editTextQuantity.getText().toString().trim())&&TextUtils.isEmpty(editTextInitial.getText().toString().trim())){
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-
-                    return;
-                }
-
-                if (TextUtils.isEmpty(editTextInitial.getText().toString().trim())&&TextUtils.isEmpty(editTextTime.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-
-                    return;
-                }
-                if (TextUtils.isEmpty(editTextTime.getText().toString().trim())&&TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-
-                    return;
-                }
-
-                if (TextUtils.isEmpty(editTextQuantity.getText().toString().trim())&&TextUtils.isEmpty(editTextTime.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-
-                    return;
-                }
-                if (TextUtils.isEmpty(editTextQuantity.getText().toString().trim())&&TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-
-                    return;
-                }
-
-                if (TextUtils.isEmpty(editTextInitial.getText().toString().trim())&&TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-
-                    return;
-                }
-
-                if (TextUtils.isEmpty(editTextQuantity.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-                    InitialValue = Double.parseDouble(editTextInitial.getText().toString().trim());
-                    TimeValue = Double.parseDouble(editTextTime.getText().toString().trim());
-                    HalfLifeValue = Double.parseDouble(editTextHalfLife.getText().toString().trim());
-
-
-                    double result = HalfLifeCalci.calculateQuantityRemainsFromInitial(InitialValue, TimeValue, HalfLifeValue);
-                    editTextQuantity.setText(String.valueOf(result));
-*//*
-                    if(editTextInitial.getText().toString().trim().equals("")){
-                        editTextInitial.setError("Enter Initial Quantity");
-                    }
-                    if(editTextTime.getText().toString().trim().equals("")){
-                        editTextTime.setError("Enter Time");
-                    }
-                    if(editTextHalfLife.getText().toString().trim().equals("")){
-                        editTextHalfLife.setError("Enter Half Life");
-                    }*//*
-                 *//*   else {*//*
-
-*//*
-                    }*//*
-                }
-
-
-                if (TextUtils.isEmpty(editTextInitial.getText().toString().trim())) {
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-                    QuantityValue = Double.parseDouble(editTextQuantity.getText().toString().trim());
-                    TimeValue = Double.parseDouble(editTextTime.getText().toString().trim());
-                    HalfLifeValue = Double.parseDouble(editTextHalfLife.getText().toString().trim());
-
-
-                    double result = HalfLifeCalci.calculateInitialQuantityFromQuantityRemains(QuantityValue, TimeValue, HalfLifeValue);
-                    editTextInitial.setText(String.valueOf(result));
-
-                }
-
-                if(TextUtils.isEmpty(editTextHalfLife.getText().toString().trim())) {
-
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-
-                    QuantityValue = Double.parseDouble(editTextQuantity.getText().toString().trim());
-                    TimeValue = Double.parseDouble(editTextTime.getText().toString().trim());
-                    InitialValue = Double.parseDouble(editTextInitial.getText().toString().trim());
-
-                    double result = HalfLifeCalci.calculateTimeHalfFromInitial(QuantityValue,InitialValue,TimeValue);
-                    editTextHalfLife.setText(String.valueOf(result));
-                }
-
-                if(TextUtils.isEmpty(editTextTime.getText().toString().trim())) {
-
-                    Toast.makeText(HalfLifeCalci.this,"Please provide any Three values",Toast.LENGTH_SHORT).show();
-
-                    QuantityValue = Double.parseDouble(editTextQuantity.getText().toString().trim());
-                    HalfLifeValue = Double.parseDouble(editTextHalfLife.getText().toString().trim());
-
-                    InitialValue = Double.parseDouble(editTextInitial.getText().toString().trim());
-
-
-                    double result = HalfLifeCalci.calculateTimeFromQuantity(HalfLifeValue,QuantityValue,InitialValue);
-                    editTextTime.setText(String.valueOf(result));
-                }
-
-
-
-
-            }
-        });
-        clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editTextQuantity.setText("");
-                editTextInitial.setText("");
-                editTextTime.setText("");
-                editTextHalfLife.setText("");
-            }
-        });
-*/
     }
-
 
 
     @Override
@@ -366,5 +112,19 @@ public class HalfLifeCalci extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
+    }
 }
 

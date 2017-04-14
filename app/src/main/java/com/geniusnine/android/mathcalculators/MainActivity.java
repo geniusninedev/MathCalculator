@@ -246,10 +246,10 @@ public class MainActivity extends AppCompatActivity
         listFlag.add(R.drawable.densitycal);
         listFlag.add(R.drawable.masscal);
         listFlag.add(R.drawable.fractioncal);
-        listFlag.add(R.drawable.gcfcal);
+        listFlag.add(R.drawable.gcf);
       //  listFlag.add(R.drawable.lcmcal);
         listFlag.add(R.drawable.timecal);
-        listFlag.add(R.drawable.datecal);
+        listFlag.add(R.drawable.datecalculator);
 
 
     }
@@ -293,13 +293,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
 
-        if (id == R.id.binaryCal) {
+      /*  if (id == R.id.binaryCal) {
 
             Intent intent=new Intent(MainActivity.this,MainActivity.class);
             startActivity(intent);
             finish();
 
-        }
+        }*/
 
 
         if (id == R.id.MoreApps) {
@@ -532,18 +532,18 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void closeapp() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+       /* AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Are you sure you want to close App?");
         alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
+                    public void onClick(DialogInterface arg0, int arg1) {*/
 
 
                         FirebaseAuth.getInstance().signOut();
                         LoginManager.getInstance().logOut();
-                    }
+               /*     }
                 });
 
         alertDialogBuilder.setNegativeButton("No",
@@ -552,11 +552,11 @@ public class MainActivity extends AppCompatActivity
                     public void onClick(DialogInterface arg0, int arg1) {
 
                     }
-                });
+                });*/
 
         //Showing the alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+       /* AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();*/
     }
 
 

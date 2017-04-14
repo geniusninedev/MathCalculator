@@ -16,11 +16,12 @@
 
 
         <TextView
-            android:text="Enter Any Three Values"
-            android:textSize="18dp"
-            android:layout_marginTop="80dp"
+            android:text="Ratio Calculator"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
             android:textColor="#000000"
             android:gravity="center"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textViewTitle" />

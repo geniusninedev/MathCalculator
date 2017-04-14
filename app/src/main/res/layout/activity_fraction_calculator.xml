@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:textColor="#000000"
+        android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
         android:id="@+id/textViewTitle"
@@ -30,6 +31,7 @@
         <Button
             android:text="Calculate"
             android:textSize="18dp"
+            android:windowSoftInputMode="stateHidden"
           android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"

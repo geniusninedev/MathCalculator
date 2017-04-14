@@ -2,85 +2,72 @@ package com.geniusnine.android.mathcalculators.RatioCalculator;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.FrameLayout;
 
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
-
-import java.util.ArrayList;
 
 /**
  * Created by Dev on 12-04-2017.
  */
 
-public class RatioCalCalci extends AppCompatActivity{
+public class RatioCalCalci extends AppCompatActivity  implements TabLayout.OnTabSelectedListener {
+    private TabLayout tabLayout;
 
-    Spinner halfLifeSpinner;
+    //This is our viewPager
+
+    FrameLayout simpleFrameLayout;
+    private FragmentPagerAdapter mPagerAdapter;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_half_life_calci);
-
-
-        halfLifeSpinner = (Spinner) findViewById(R.id.spinnerHalfLife);
+        setContentView(R.layout.activity_ratiocal_calci);
 
 
 
 
-
-
-        ArrayList area = new ArrayList();
-        area.add("Select");
-        area.add("Ratio Calculator");
-        area.add("Ratio Scaling Calculator");
-
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, area);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        halfLifeSpinner.setAdapter(dataAdapter);
-
-        halfLifeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-                if (position == 1) {
-
-
-                    Intent meanHalfLife = new Intent(getApplicationContext(), RatioCalculator.class);
-                    finish();
-                    startActivity(meanHalfLife);
-
-
+            //Initializing the tablayout
+            mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+                private final Fragment[] mFragments = new Fragment[] {
+                        new RatioCalculator(),
+                        new RatioScalingCalculator(),
+                };
+                private final String[] mFragmentNames = new String[] {
+                        getString(R.string.app_name8),
+                        getString(R.string.app_name16)
+                };
+                @Override
+                public Fragment getItem(int position) {
+                    return mFragments[position];
+                }
+                @Override
+                public int getCount() {
+                    return mFragments.length;
                 }
 
-                if (position == 2) {
-
-
-                    Intent meanHalfLife = new Intent(getApplicationContext(), RatioScalingCalculator.class);
-                    startActivity(meanHalfLife);
-                    finish();
-
-
+                public CharSequence getPageTitle(int position) {
+                    return mFragmentNames[position];
                 }
 
+            };
 
-            }
+            viewPager = (ViewPager) findViewById(R.id.pager);
+            viewPager.setAdapter(mPagerAdapter);
+            TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayoutratio);
+            tabLayout.setupWithViewPager(viewPager);
+        simpleFrameLayout = (FrameLayout) findViewById(R.id.simpleFrameLayout);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
     }
 
 
@@ -124,6 +111,20 @@ public class RatioCalCalci extends AppCompatActivity{
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
+    }
 }
 
 

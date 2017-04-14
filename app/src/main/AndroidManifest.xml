@@ -17,7 +17,7 @@
     <application
         android:name=".Login.CustomApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/mathcalci"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -119,7 +119,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity
+       <!-- <activity
             android:name=".HexCalculator.HexCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name6"
@@ -127,7 +127,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
+        </activity>-->
         <activity
             android:name=".LogCalculator.LogCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -137,7 +137,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity
+      <!--  <activity
             android:name=".RatioCalculator.RatioCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name8"
@@ -145,8 +145,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-        <activity
+        </activity>-->
+      <!--  <activity
             android:name=".RootCalculator.RootCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name9"
@@ -154,8 +154,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
-        <activity
+        </activity>-->
+    <!--    <activity
             android:name=".RootCalculator.SquareRootCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name19"
@@ -163,8 +163,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RootCalculator.SquareRootCalculator" />
-        </activity>
-        <activity
+        </activity>-->
+       <!-- <activity
             android:name=".RootCalculator.CubeRootCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name20"
@@ -172,7 +172,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RootCalculator.CubeRootCalculator" />
-        </activity>
+        </activity>-->
         <activity
             android:name=".DensityCalculator.DensityCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -191,7 +191,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity
+       <!-- <activity
             android:name=".FractionCalculator.FractionCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name12"
@@ -199,7 +199,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity>
+        </activity>-->
         <activity
             android:name=".GCFCalculator.GCFCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -209,7 +209,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity
+      <!--  <activity
             android:name=".HalfLifeCalci.MeanHalfLifeCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name14"
@@ -217,8 +217,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HalfLifeCalci.MeanHalfLifeCalculator" />
-        </activity>
-        <activity
+        </activity>-->
+      <!--  <activity
             android:name=".HalfLifeCalci.HalfLifeCalculatorCalci"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name15"
@@ -226,8 +226,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HalfLifeCalci.HalfLifeCalculatorCalci" />
-        </activity>
-        <activity
+        </activity>-->
+      <!--  <activity
             android:name=".RatioCalculator.RatioScalingCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name16"
@@ -235,7 +235,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RatioCalculator.RatioScalingCalculator" />
-        </activity>
+        </activity>-->
         <activity
             android:name=".RatioCalculator.RatioCalCalci"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -263,7 +263,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity
+    <!--    <activity
             android:name=".FractionCalculator.SimplifyFractionsCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name21"
@@ -271,8 +271,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FractionCalculator.SimplifyFractionsCalculator" />
-        </activity>
-        <activity
+        </activity>-->
+       <!-- <activity
             android:name=".FractionCalculator.FractiontoDecimalCalci"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name22"
@@ -280,8 +280,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FractionCalculator.FractiontoDecimalCalci" />
-        </activity>
-        <activity
+        </activity>-->
+      <!--  <activity
             android:name=".FractionCalculator.DecimaltoFractionCalci"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name17"
@@ -289,7 +289,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FractionCalculator.DecimaltoFractionCalci" />
-        </activity>
+        </activity>-->
         <activity
             android:name=".TimeCalculator.TimeCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -315,14 +315,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".HexCalculator.ConversionCalculator"
+      <!--  <activity android:name=".HexCalculator.ConversionCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name25"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HexCalculator.ConversionCalculator" />
-        </activity>
+        </activity>-->
     </application>
 
 </manifest>

@@ -1,13 +1,12 @@
 package com.geniusnine.android.mathcalculators.FractionCalculator;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,34 +14,38 @@ import android.widget.TextView;
 
 import com.geniusnine.android.mathcalculators.R;
 
-public class SimplifyFractionsCalculator extends AppCompatActivity {
+public class SimplifyFractionsCalculator  extends android.support.v4.app.Fragment{
     TextView textViewAnswerSecond,textViewAnswerResult;
     EditText editTextAnswerFirst;
     EditText editTextSimpleValueOne,editTextSimpleValueTwo,editTextSimpleValueThree;
     double simpleValueOne,simpleValueTwo,simpleValueThree;
-    @Override
+  /*  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simplify_fractions_calculator);
+        setContentView(R.layout.activity_simplify_fractions_calculator);*/
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        editTextSimpleValueOne=(EditText)findViewById(R.id.editTextSimplifyOne);
-        editTextSimpleValueTwo=(EditText)findViewById(R.id.editTextSimplifyTwo);
-        editTextSimpleValueThree=(EditText)findViewById(R.id.editTextSimplifyThird);
-        editTextAnswerFirst=(EditText)findViewById(R.id.editTextAnswerFirst);
 
-        textViewAnswerSecond=(TextView)findViewById(R.id.textViewAnswerSecond);
-        textViewAnswerResult=(TextView)findViewById(R.id.textViewAnswerResult);
+      View view = inflater.inflate(R.layout.activity_simplify_fractions_calculator, container, false);
 
-        Button calci=(Button)findViewById(R.id.buttonCalci);
-        Button reset=(Button)findViewById(R.id.buttonReset);
+        editTextSimpleValueOne=(EditText)view.findViewById(R.id.editTextSimplifyOne);
+        editTextSimpleValueTwo=(EditText)view.findViewById(R.id.editTextSimplifyTwo);
+        editTextSimpleValueThree=(EditText)view.findViewById(R.id.editTextSimplifyThird);
+        editTextAnswerFirst=(EditText)view.findViewById(R.id.editTextAnswerFirst);
+
+        textViewAnswerSecond=(TextView)view.findViewById(R.id.textViewAnswerSecond);
+        textViewAnswerResult=(TextView)view.findViewById(R.id.textViewAnswerResult);
+
+        Button calci=(Button)view.findViewById(R.id.buttonCalci);
+        Button reset=(Button)view.findViewById(R.id.buttonReset);
 
         calci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 FractionCalci fractionCalci=new FractionCalci();
-                InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+      hideKeyboard();
                 if(editTextSimpleValueOne.getText().toString().trim().equals("")){
                     editTextSimpleValueOne.setError("Enter The 1st Value");
                 }
@@ -82,9 +85,16 @@ public class SimplifyFractionsCalculator extends AppCompatActivity {
             }
         });
 
-
+return  view;
     }
+    public void hideKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(android.content.Context.INPUT_METHOD_SERVICE);
 
+        inputMethodManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), 0);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -92,15 +102,15 @@ public class SimplifyFractionsCalculator extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            Intent intent=new Intent(SimplifyFractionsCalculator.this,FractionCalCalci.class);
-            finish();
+            Intent intent=new Intent(getActivity(),FractionCalCalci.class);
+            //finish();
             startActivity(intent);
 
         }
 
         return super.onOptionsItemSelected(item);
     }
-    @Override
+  /*  @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
@@ -110,7 +120,7 @@ public class SimplifyFractionsCalculator extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
