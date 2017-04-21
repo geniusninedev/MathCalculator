@@ -50,7 +50,7 @@
 
         <Button
             android:background="@color/colorPrimary"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:text="Calculate"
 android:layout_weight="1"
             android:textColor="@android:color/background_light"
@@ -61,7 +61,7 @@ android:layout_weight="1"
         <Button
 
             android:text="Clear"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"

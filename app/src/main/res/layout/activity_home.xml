@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:background="@drawable/childimage"
+    android:padding="10dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/high_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_background"
+
+            android:textColor="@android:color/background_light"
+            android:padding="20dp"
+            android:text="High Scores"
+
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="63dp"
+            android:layout_below="@+id/help_btn"
+            android:layout_alignRight="@+id/help_btn"
+            android:layout_alignEnd="@+id/help_btn" />
+
+        <Button
+            android:id="@+id/help_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_background"
+
+            android:textColor="@android:color/background_light"
+            android:padding="20dp"
+            android:text="How to Play"
+
+
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="63dp"
+            android:layout_below="@+id/play_btn"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_background"
+            android:layout_marginTop="63dp"
+            android:textColor="@android:color/background_light"
+            android:padding="20dp"
+            android:text="Play"
+
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/intro"
+            android:layout_centerHorizontal="true" />
+
+       <!-- <TextView
+            android:id="@+id/intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/operators"
+            android:layout_centerHorizontal="true" />-->
+    </RelativeLayout>
+
+</ScrollView>

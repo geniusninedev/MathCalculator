@@ -7,4 +7,5 @@
         android:icon="@drawable/ic_power_settings_new_white_24dp"
         android:title="@string/action_logout"
         app:showAsAction="always" />
+
 </menu>

@@ -51,6 +51,7 @@
         <Button
             android:text="Calculate"
             android:layout_weight="1"
+            android:textSize="16dp"
             android:textColor="@android:color/background_light"
             android:layout_width="match_parent"
             android:background="@color/colorPrimary"
@@ -59,6 +60,7 @@
 
         <Button
             android:text="Clear"
+            android:textSize="16dp"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -83,7 +85,7 @@
         <Spinner
 
             android:layout_weight="1"
-            android:layout_width="50dp"
+            android:layout_width="55dp"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerBase" />
 

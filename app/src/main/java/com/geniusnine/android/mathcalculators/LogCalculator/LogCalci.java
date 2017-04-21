@@ -10,9 +10,9 @@ public class LogCalci {
 	public static double logb( double a, double b )
 	{
 
-		/*DecimalFormat df = new DecimalFormat(RESULT_FORMAT);
-		df.setRoundingMode(RoundingMode.HALF_UP);*/
-	return (Math.log(a) / Math.log(b));
+		DecimalFormat df = new DecimalFormat(RESULT_FORMAT);
+		df.setRoundingMode(RoundingMode.HALF_UP);
+	return Double.parseDouble((df.format(Math.log(a) / Math.log(b))));
 	}
 
 	public static double log2( double a )

@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".Login.CustomApplication"
+        android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
         android:icon="@drawable/mathcalci"
         android:label="@string/app_name"
@@ -104,7 +104,7 @@
         <activity
             android:name=".ExponentCalci.ExponentCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name4"
+            android:label="@string/app_name44"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -119,15 +119,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-       <!-- <activity
-            android:name=".HexCalculator.HexCalculator"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name6"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>-->
         <activity
             android:name=".LogCalculator.LogCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -137,42 +128,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-      <!--  <activity
-            android:name=".RatioCalculator.RatioCalculator"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name8"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>-->
-      <!--  <activity
-            android:name=".RootCalculator.RootCalculator"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name9"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>-->
-    <!--    <activity
-            android:name=".RootCalculator.SquareRootCalculator"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name19"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".RootCalculator.SquareRootCalculator" />
-        </activity>-->
-       <!-- <activity
-            android:name=".RootCalculator.CubeRootCalculator"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name20"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".RootCalculator.CubeRootCalculator" />
-        </activity>-->
         <activity
             android:name=".DensityCalculator.DensityCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -191,15 +146,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-       <!-- <activity
-            android:name=".FractionCalculator.FractionCalculator"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name12"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>-->
         <activity
             android:name=".GCFCalculator.GCFCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -209,37 +155,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-      <!--  <activity
-            android:name=".HalfLifeCalci.MeanHalfLifeCalculator"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name14"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HalfLifeCalci.MeanHalfLifeCalculator" />
-        </activity>-->
-      <!--  <activity
-            android:name=".HalfLifeCalci.HalfLifeCalculatorCalci"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name15"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HalfLifeCalci.HalfLifeCalculatorCalci" />
-        </activity>-->
-      <!--  <activity
-            android:name=".RatioCalculator.RatioScalingCalculator"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name16"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".RatioCalculator.RatioScalingCalculator" />
-        </activity>-->
         <activity
             android:name=".RatioCalculator.RatioCalCalci"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name8"
+            android:label="@string/app_name88"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -263,33 +182,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-    <!--    <activity
-            android:name=".FractionCalculator.SimplifyFractionsCalculator"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name21"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FractionCalculator.SimplifyFractionsCalculator" />
-        </activity>-->
-       <!-- <activity
-            android:name=".FractionCalculator.FractiontoDecimalCalci"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name22"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FractionCalculator.FractiontoDecimalCalci" />
-        </activity>-->
-      <!--  <activity
-            android:name=".FractionCalculator.DecimaltoFractionCalci"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name17"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FractionCalculator.DecimaltoFractionCalci" />
-        </activity>-->
         <activity
             android:name=".TimeCalculator.TimeCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -299,7 +191,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".DateCalculator.DateCalculator"
+        <activity
+            android:name=".DateCalculator.DateCalculator"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name24"
             android:windowSoftInputMode="stateHidden|adjustResize">
@@ -307,7 +200,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".HexCalculator.HexCalCalci"
+        <activity
+            android:name=".HexCalculator.HexCalCalci"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name6"
             android:windowSoftInputMode="stateHidden|adjustResize">
@@ -315,14 +209,61 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-      <!--  <activity android:name=".HexCalculator.ConversionCalculator"
+        <activity
+            android:name=".FlagQuizGame.FlagQuizGame"
+            android:label="@string/app_name89"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/app_name25"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HexCalculator.ConversionCalculator" />
-        </activity>-->
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".FlagQuizGame.SettingsActivity"
+            android:label="@string/app_name89"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".Game.TicTacToe"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name66"
+
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".Game.Game"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name66"
+
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+        </activity>
+        <activity
+            android:name=".Game.StatsView"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name66"></activity>
+        <activity android:name=".KidsGame.Home"
+
+            android:label="@string/app_name45"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+
+        <activity android:name=".KidsGame.HighScore"
+            android:label="@string/app_name45"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".KidsGame.HowToPlay"
+            android:label="@string/app_name45"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".KidsGame.PlayGame"
+            android:label="@string/app_name45"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
     </application>
 
 </manifest>

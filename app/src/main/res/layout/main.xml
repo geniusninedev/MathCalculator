@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@android:color/background_light">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+           >
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="511dp">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="Tic-Tac-Toe"
+                    android:textStyle="bold"
+
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="20sp"
+                    android:paddingTop="10sp"
+                    android:textSize="30sp"
+                    android:gravity="center"
+                    android:typeface="sans"/>
+
+
+                <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Player vs. Player"
+                    android:id="@+id/pvp"
+                    android:minWidth="200sp"
+                    android:textColor="@android:color/background_light"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:textSize="16dp"
+                    android:layout_marginTop="77dp"
+                    android:layout_below="@+id/textView2"
+                    android:layout_centerHorizontal="true">
+
+                </Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="200sp"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="16dp"
+                    android:background="@drawable/button"
+                    android:text="  Player vs.Computer  "
+                    android:id="@+id/pvc"
+
+                    android:gravity="center"
+                    android:layout_below="@+id/pvp"
+                    android:layout_alignLeft="@+id/pvp"
+                    android:layout_alignStart="@+id/pvp"
+                    android:layout_marginTop="60dp">
+
+                </Button>
+
+                <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button"
+                    android:minWidth="200sp"
+                    android:text="View Stats"
+
+                    android:id="@+id/vs"
+                    android:gravity="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="16dp"
+                    android:layout_below="@+id/pvc"
+                    android:layout_alignLeft="@+id/pvc"
+                    android:layout_alignStart="@+id/pvc"
+                    android:layout_marginTop="60dp">
+
+                </Button>
+
+
+                <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button"
+                    android:minWidth="200sp"
+                    android:text="Quit"
+                    android:id="@+id/quit"
+                    android:gravity="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignLeft="@+id/vs"
+                    android:layout_alignStart="@+id/vs"
+                    android:layout_marginBottom="60dp">
+
+                </Button>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -12,7 +12,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
@@ -29,16 +31,22 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
+import com.firebase.client.Firebase;
 import com.geniusnine.android.mathcalculators.BinaryCalculator.BinaryCalculator;
 import com.geniusnine.android.mathcalculators.DashBord.GetApp;
 import com.geniusnine.android.mathcalculators.DateCalculator.DateCalculator;
 import com.geniusnine.android.mathcalculators.DensityCalculator.DensityCalculator;
 import com.geniusnine.android.mathcalculators.ExponentCalci.ExponentCalculator;
+import com.geniusnine.android.mathcalculators.FlagQuizGame.FlagQuizGame;
 import com.geniusnine.android.mathcalculators.FractionCalculator.FractionCalCalci;
 import com.geniusnine.android.mathcalculators.GCFCalculator.GCFCalculator;
+import com.geniusnine.android.mathcalculators.Game.TicTacToe;
 import com.geniusnine.android.mathcalculators.HalfLifeCalci.HalfLifeCalci;
 import com.geniusnine.android.mathcalculators.HexCalculator.HexCalCalci;
+import com.geniusnine.android.mathcalculators.KidsGame.Home;
 import com.geniusnine.android.mathcalculators.LogCalculator.LogCalculator;
 import com.geniusnine.android.mathcalculators.Login.Contacts;
 import com.geniusnine.android.mathcalculators.Login.Login;
@@ -86,14 +94,27 @@ public class MainActivity extends AppCompatActivity
     FragmentManager mFragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        Firebase.setAndroidContext(this);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_main);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         prepareList();
-
+   FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         // prepared arraylist and passed it to the Adapter class
         mAdapter = new CustomAdapter(this, listCountry, listFlag);
 
@@ -213,9 +234,9 @@ public class MainActivity extends AppCompatActivity
     public void prepareList() {
         listCountry = new ArrayList<String>();
 
-        listCountry.add("Percent Error ");
-        listCountry.add("Half Life ");
-        listCountry.add("Quadratic Eqn");
+        listCountry.add("% Error");
+        listCountry.add(" Half Life"  );
+        listCountry.add("Quadratic ");
         listCountry.add("Exponent");
         listCountry.add("Binary ");
         listCountry.add("Hex ");
@@ -283,6 +304,7 @@ public class MainActivity extends AppCompatActivity
             closeapp();
         }
 
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -292,15 +314,22 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-
-      /*  if (id == R.id.binaryCal) {
-
-            Intent intent=new Intent(MainActivity.this,MainActivity.class);
-            startActivity(intent);
+        if (id == R.id.flag) {
+            Intent app=new Intent(MainActivity.this,FlagQuizGame.class);
             finish();
+            startActivity(app);
+        }
+        if (id == R.id.game) {
+            Intent symbol=new Intent(MainActivity.this,TicTacToe.class);
+            finish();
+            startActivity(symbol);
+        }
 
-        }*/
-
+        if (id == R.id.kidsgame) {
+            Intent symbol=new Intent(MainActivity.this,Home.class);
+            finish();
+            startActivity(symbol);
+        }
 
         if (id == R.id.MoreApps) {
 
@@ -313,8 +342,7 @@ public class MainActivity extends AppCompatActivity
             }
 
         }
-
-        if (id == R.id.Share) {
+   if (id == R.id.Share) {
             final String appPackageName = getPackageName();
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
@@ -323,7 +351,7 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra(Intent.EXTRA_TEXT, shareBodyText);
             startActivity(Intent.createChooser(intent, "Choose sharing method"));
         }
-        if (id == R.id.RateUs) {
+       if (id == R.id.RateUs) {
             final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
@@ -331,7 +359,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
             }
         }
-        if (id == R.id.GetApps) {
+       if (id == R.id.GetApps) {
                 /*    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new GetApp()).commit();*/
             Intent intent = new Intent(MainActivity.this, GetApp.class);

@@ -43,7 +43,7 @@
 
     <LinearLayout
         android:gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="250dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -52,7 +52,7 @@
 
         <Button
             android:text="Calculate"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textColor="@android:color/background_light"
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:text="Clear"
             android:textColor="@android:color/background_light"
             android:layout_marginLeft="20dp"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:weightSum="1"
             android:layout_width="match_parent"
             android:background="@color/colorPrimary"

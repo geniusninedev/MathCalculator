@@ -134,7 +134,8 @@
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonCalculate" />
+                android:id="@+id/buttonCalculate"
+                android:textSize="16dp" />
 
             <Button
                 android:text="Clear"
@@ -144,7 +145,8 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonClear" />
+                android:id="@+id/buttonClear"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <LinearLayout

@@ -83,7 +83,7 @@
 <LinearLayout
     android:gravity="center"
     android:weightSum="2"
-    android:layout_marginTop="200dp"
+    android:layout_marginTop="220dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -91,25 +91,27 @@
     <Button
         android:background="@color/colorPrimary"
         android:text="Calculate"
-        android:layout_width="131dp"
-        android:layout_height="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textColor="@android:color/background_light"
         android:layout_weight="1"
+        android:textSize="16dp"
         android:id="@+id/calculateButton" />
 
     <Button
         android:background="@color/colorPrimary"
         android:text="Reset"
         android:layout_weight="1"
+        android:textSize="16dp"
         android:layout_marginLeft="20dp"
-        android:layout_width="131dp"
-        android:layout_height="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textColor="@android:color/background_light"
         android:id="@+id/resetButton" />
 </LinearLayout>
 
     <TextView
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="290dp"
         android:layout_width="match_parent"
      android:gravity="center"
         android:layout_height="wrap_content"

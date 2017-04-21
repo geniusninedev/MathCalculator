@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@android:color/background_light">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="510dp">
+
+
+                <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:text="Tic-Tac-Toe"
+                android:textStyle="bold"
+                android:textSize="30sp"
+              android:gravity="center"
+                android:layout_gravity="center_horizontal"
+
+                android:paddingBottom="20sp"
+                android:paddingTop="10sp"/>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout02" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                    <ImageButton
+                        android:id="@+id/ImageButton04"
+                        android:layout_width="129dp"
+                        android:layout_height="135dp"
+                        android:maxHeight="107sp"
+                        android:layout_weight="0.37"
+                        android:maxWidth="107sp"
+                        android:minHeight="107sp"
+                        android:minWidth="107sp"></ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/ImageButton05"
+                        android:layout_width="132dp"
+                        android:layout_height="match_parent"
+                        android:maxWidth="107sp"
+                        android:maxHeight="107sp"
+                        android:layout_weight="0.37"
+                        android:minHeight="107sp"
+                        android:minWidth="107sp"></ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/ImageButton06"
+                        android:layout_width="123dp"
+                        android:layout_height="match_parent"
+                        android:maxHeight="107sp"
+                        android:maxWidth="107sp"
+                        android:minHeight="107sp"
+                        android:layout_weight="0.37"
+                        android:minWidth="107sp"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:gravity="center"
+                android:id="@+id/TextView01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                    android:layout_weight="0.37"
+                    android:layout_marginBottom="16dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"></TextView>
+
+                <LinearLayout android:id="@+id/LinearLayout01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_above="@+id/LinearLayout02"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+                    <ImageButton
+                        android:id="@+id/ImageButton01"
+                        android:layout_width="129dp"
+                        android:layout_height="135dp"
+                        android:maxHeight="107sp"
+                        android:layout_weight="0.37"
+                        android:maxWidth="107sp"
+                        android:minHeight="107sp"
+                        android:minWidth="107sp"></ImageButton>
+
+                <ImageButton
+                    android:id="@+id/ImageButton02"
+                    android:layout_width="132dp"
+                    android:layout_height="match_parent"
+                    android:maxWidth="107sp"
+                    android:maxHeight="107sp"
+                    android:layout_weight="0.37"
+                    android:minHeight="107sp"
+                    android:minWidth="107sp"></ImageButton>
+                <ImageButton
+                    android:id="@+id/ImageButton03"
+                    android:layout_width="123dp"
+                    android:layout_height="match_parent"
+                    android:maxHeight="107sp"
+                    android:maxWidth="107sp"
+                    android:minHeight="107sp"
+                    android:layout_weight="0.37"
+                    android:minWidth="107sp"></ImageButton>
+                </LinearLayout>
+
+
+                <LinearLayout android:id="@+id/LinearLayout03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@+id/LinearLayout02"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                    <ImageButton
+                        android:id="@+id/ImageButton07"
+                        android:layout_width="129dp"
+                        android:layout_height="135dp"
+                        android:maxHeight="107sp"
+                        android:layout_weight="0.37"
+                        android:maxWidth="107sp"
+                        android:minHeight="107sp"
+                        android:minWidth="107sp"></ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/ImageButton08"
+                        android:layout_width="132dp"
+                        android:layout_height="match_parent"
+                        android:maxWidth="107sp"
+                        android:maxHeight="107sp"
+                        android:layout_weight="0.37"
+                        android:minHeight="107sp"
+                        android:minWidth="107sp"></ImageButton>
+                    <ImageButton
+                        android:id="@+id/ImageButton09"
+                        android:layout_width="123dp"
+                        android:layout_height="match_parent"
+                        android:maxHeight="107sp"
+                        android:maxWidth="107sp"
+                        android:minHeight="107sp"
+                        android:layout_weight="0.37"
+                        android:minWidth="107sp"></ImageButton>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

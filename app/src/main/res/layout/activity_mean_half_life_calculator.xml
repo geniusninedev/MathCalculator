@@ -100,7 +100,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -110,10 +110,11 @@
                 android:background="@color/colorPrimary"
                 android:text="Calculate"
                 android:layout_weight="1"
-android:textColor="@android:color/background_light"
+                android:textColor="@android:color/background_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonCalculateOne" />
+                android:id="@+id/buttonCalculateOne"
+                android:textSize="16dp" />
 
             <Button
                 android:text="Clear"
@@ -123,7 +124,8 @@ android:textColor="@android:color/background_light"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonClearSecond" />
+                android:id="@+id/buttonClearSecond"
+                android:textSize="16dp" />
 
         </LinearLayout>
     </LinearLayout>

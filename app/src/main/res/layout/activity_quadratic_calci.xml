@@ -121,6 +121,7 @@
             <Button
                 android:textColor="@android:color/background_light"
                android:layout_weight="1"
+                android:textSize="16dp"
                 android:text="Calculate"
                 android:background="@color/colorPrimary"
                 android:layout_width="match_parent"
@@ -129,6 +130,7 @@
             <Button
                 android:layout_marginLeft="20dp"
                 android:text="Reset"
+                android:textSize="16dp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimary"

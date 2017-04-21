@@ -10,13 +10,14 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.geniusnine.android.mathcalculators.R;
 
 public class FractiontoDecimalCalci extends android.support.v4.app.Fragment{
 
     EditText editTextFirst,editTextSecond;
-    EditText answereditText;
+    TextView answereditText;
     double editTextFirstValue,editTextSecondValue;
 
     @Override
@@ -28,7 +29,7 @@ public class FractiontoDecimalCalci extends android.support.v4.app.Fragment{
 
         editTextFirst=(EditText)view.findViewById(R.id.editTextFirst);
         editTextSecond=(EditText)view.findViewById(R.id.editTextSecond);
-        answereditText=(EditText)view.findViewById(R.id.editTextResult);
+        answereditText=(TextView)view.findViewById(R.id.editTextResult);
 
 
         Button calculate =(Button)view.findViewById(R.id.buttonCal);
@@ -54,7 +55,7 @@ public class FractiontoDecimalCalci extends android.support.v4.app.Fragment{
                     editTextSecondValue=(Double.parseDouble(editTextSecond.getText().toString().trim()));
 
                     double  result=fractionCalci.FractionToDecimal(editTextFirstValue,editTextSecondValue);
-                   answereditText.setText(""+result);
+                   answereditText.setText("Decimal Value:"+result);
                     answereditText.setVisibility(View.VISIBLE);
                 }
             }
@@ -66,6 +67,7 @@ public class FractiontoDecimalCalci extends android.support.v4.app.Fragment{
                 editTextFirst.setText("");
                 editTextSecond.setText("");
                 answereditText.setText("");
+                answereditText.setVisibility(View.INVISIBLE);
             }
         });
 return  view;

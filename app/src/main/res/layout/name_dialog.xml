@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:background="#fff"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minWidth="300sp"
+
+    android:minHeight="150sp">
+
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_marginLeft="40sp"
+      android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text=" Enter Your Name:"
+        android:textSize="17sp">
+
+    </TextView>
+
+   <TextView
+        android:text="Player 1"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7" />
+
+    <EditText
+        android:id="@+id/EditText01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:minWidth="200sp"
+        android:layout_marginLeft="50sp"
+        android:singleLine="true"
+        android:hint="Name:"></EditText>
+
+    <Button android:id="@+id/Button01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:minWidth="100sp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/background_light"
+      ></Button>
+
+</LinearLayout>

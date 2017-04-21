@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:id="@+id/grp2" android:checkableBehavior="single" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/flag"
 
+            android:title="Flag Quiz" />
+        <item
+            android:id="@+id/game"
+
+            android:title="Tic Tac Toe" />
+        <item
+            android:id="@+id/kidsgame"
+
+            android:title="Kids Brain Game" />
     </group>
 
     <item
