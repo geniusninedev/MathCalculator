@@ -41,6 +41,7 @@ import com.geniusnine.android.mathcalculators.DateCalculator.DateCalculator;
 import com.geniusnine.android.mathcalculators.DensityCalculator.DensityCalculator;
 import com.geniusnine.android.mathcalculators.ExponentCalci.ExponentCalculator;
 import com.geniusnine.android.mathcalculators.FlagQuizGame.FlagQuizGame;
+import com.geniusnine.android.mathcalculators.Forum.ForumActivity;
 import com.geniusnine.android.mathcalculators.FractionCalculator.FractionCalCalci;
 import com.geniusnine.android.mathcalculators.GCFCalculator.GCFCalculator;
 import com.geniusnine.android.mathcalculators.Game.TicTacToe;
@@ -111,8 +112,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                finish();
+              startActivity(new Intent(MainActivity.this, ForumActivity.class));
             }
         });
         // prepared arraylist and passed it to the Adapter class

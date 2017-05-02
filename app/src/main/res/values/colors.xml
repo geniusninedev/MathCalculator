@@ -10,7 +10,7 @@
     <color name="secondary_text">#212121</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
-
+    <color name="colorLike">#2c7ce6</color>
     <color name="correct_answer">#00CC00</color>
     <color name="incorrect_answer">#FF0000</color>
 </resources>

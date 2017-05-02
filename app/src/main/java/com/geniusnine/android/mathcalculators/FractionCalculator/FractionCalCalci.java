@@ -33,11 +33,6 @@ public class FractionCalCalci extends AppCompatActivity implements TabLayout.OnT
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fractioncal_calci);
 
-
-
-
-
-
             //Initializing the tablayout
             mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
                 private final Fragment[] mFragments = new Fragment[]{
