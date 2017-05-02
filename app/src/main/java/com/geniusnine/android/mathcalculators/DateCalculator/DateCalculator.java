@@ -44,6 +44,7 @@ public class DateCalculator extends AppCompatActivity {
         resultText = (TextView)findViewById(R.id.txtResult);
 
 
+
     }
 
     public int calculateYears(int s, int e)

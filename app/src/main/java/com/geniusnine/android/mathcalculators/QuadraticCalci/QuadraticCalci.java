@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.geniusnine.android.mathcalculators.HalfLifeCalci.HalfLifeCalci;
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
 
@@ -49,6 +48,7 @@ public class QuadraticCalci extends AppCompatActivity {
             public void onClick(View v) {
 
                 QuadraticFormulaCalci quadraticFormulaCalci=new QuadraticFormulaCalci();
+
                 InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 textViewValue.setVisibility(View.INVISIBLE);
