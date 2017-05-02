@@ -268,7 +268,6 @@ public class MainActivity extends AppCompatActivity
         listFlag.add(R.drawable.masscal);
         listFlag.add(R.drawable.fractioncal);
         listFlag.add(R.drawable.gcf);
-      //  listFlag.add(R.drawable.lcmcal);
         listFlag.add(R.drawable.timecal);
         listFlag.add(R.drawable.datecalculator);
 
@@ -332,8 +331,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (id == R.id.MoreApps) {
-
-            //Sunile Sir Code
+            //Sunil Sir Code
             final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://developer?id=GeniusNine+Info+Systems+LLP")));
