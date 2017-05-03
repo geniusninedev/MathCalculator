@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_density_calculator"
@@ -11,23 +12,26 @@
     tools:context="com.geniusnine.android.mathcalculators.DensityCalculator.DensityCalculator">
     <LinearLayout
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/volumelay"
+        android:weightSum="3"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
         <TextView
             android:textColor="#000000"
             android:layout_marginTop="20dp"
             android:text="Enter Volume:"
-            android:layout_width="137dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:id="@+id/textViewVolume"
             android:textSize="18dp" />
 
         <EditText
             android:layout_marginTop="20dp"
-
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
@@ -36,12 +40,13 @@
 
             android:ems="10"
             android:id="@+id/editTextVolume"
-            android:layout_weight="2" />
+           />
         <TextView
             android:textColor="#000000"
             android:layout_marginTop="20dp"
             android:text="cubic meter"
-            android:layout_width="137dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textViewvolumetext"
             android:textSize="18dp" />
@@ -53,7 +58,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-
+        android:weightSum="3"
+        android:id="@+id/densitylayout"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -61,9 +67,10 @@
         <TextView
             android:layout_marginTop="20dp"
             android:text="Enter Density :"
-            android:layout_width="136dp"
-            android:layout_height="55dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#000000"
+            android:layout_weight="1"
             android:id="@+id/textViewDensity"
             android:textSize="18dp" />
 
@@ -74,36 +81,37 @@
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
             android:text=""
-
+            android:layout_weight="1"
             android:ems="10"
-            android:id="@+id/editTextDensity"
-            android:layout_weight="2" />
+            android:id="@+id/editTextDensity" />
         <TextView
             android:textColor="#000000"
             android:layout_marginTop="20dp"
             android:text="kg/cubic meter"
-            android:layout_width="137dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textViewdensitytext"
             android:textSize="18dp" />
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="100dp"
         android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:id="@+id/masslayout"
+        android:layout_below="@id/volumelay"
+        android:weightSum="3"
+      >
 
         <TextView
             android:layout_marginTop="20dp"
             android:text="Enter Mass :"
             android:textColor="#000000"
-            android:layout_width="136dp"
-            android:layout_height="55dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/textViewMass"
+            android:layout_weight="1"
             android:textSize="18dp" />
 
         <EditText
@@ -113,27 +121,51 @@
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
             android:text=""
-
+            android:layout_weight="1"
             android:background="@android:drawable/editbox_background"
             android:ems="10"
             android:id="@+id/editTextMass"
-            android:layout_weight="2" />
+          />
 
         <TextView
             android:layout_marginTop="20dp"
             android:text="kilogram"
             android:textColor="#000000"
-            android:layout_width="136dp"
-            android:layout_height="55dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity=""
             android:id="@+id/textViewmasstext"
             android:textSize="18dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/masslayout"
+        android:id="@+id/adviews"
+        android:orientation="horizontal"
         android:gravity="center"
-android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:weightSum="2">
 
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewdensity"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="SMART_BANNER"
+            android:layout_marginTop="1dp"
+            ads:adUnitId="@string/banner_ad_unit_id">
+        </com.google.android.gms.ads.AdView>
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:weightSum="2"
+        android:layout_below="@id/adviews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

@@ -12,8 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.geniusnine.android.mathcalculators.GCFCalculator.GCFCalculator;
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -31,6 +35,12 @@ public class MassCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mass_calculator);
+
+        MobileAds.initialize(MassCalculator.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewmasscal);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         editTextDensity=(EditText)findViewById(R.id.editTextDensity);
         editTextVolume=(EditText)findViewById(R.id.editTextVolume);
 

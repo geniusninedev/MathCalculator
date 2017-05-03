@@ -13,7 +13,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.geniusnine.android.mathcalculators.GCFCalculator.GCFCalculator;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -39,7 +43,11 @@ public class HalfLifeCalculatorCalci extends android.support.v4.app.Fragment {
 
         View view = inflater.inflate(R.layout.half_life, container, false);
 
+        MobileAds.initialize(getActivity(), getString(R.string.ads_app_id));
+        AdView mAdView = (AdView)view.findViewById(R.id.adViewhalflife);
 
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         textViewQuantity = (TextView)view. findViewById(R.id.textViewQuantity);
         textViewInitial = (TextView)view. findViewById(R.id.textViewInitial);

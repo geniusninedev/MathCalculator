@@ -13,8 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.geniusnine.android.mathcalculators.BinaryCalculator.BinaryCalculator;
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class DateCalculator extends AppCompatActivity {
     public EditText monthStart, monthEnd, dayStart, dayEnd, yearStart, yearEnd;
@@ -32,6 +36,13 @@ public class DateCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_calculator);
+
+        MobileAds.initialize(DateCalculator.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewdate);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         monthStart = (EditText)findViewById(R.id.monthStart);
         dayStart = (EditText)findViewById(R.id.dayStart);
         yearStart = (EditText)findViewById(R.id.yearStart);

@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class RootCalculator extends android.support.v4.app.Fragment{
 
@@ -25,7 +28,11 @@ public class RootCalculator extends android.support.v4.app.Fragment{
 
 
         View view = inflater.inflate(R.layout.activity_root_calculator, container, false);
+        MobileAds.initialize(getActivity(), getString(R.string.ads_app_id));
+        AdView mAdView = (AdView)view. findViewById(R.id.adViewrootcal);
 
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         textViewGeneralRoot=(TextView)view.findViewById(R.id.textViewGeneralRoot);
         textViewGeneralRootNumber=(TextView)view.findViewById(R.id.textViewRootNumber);

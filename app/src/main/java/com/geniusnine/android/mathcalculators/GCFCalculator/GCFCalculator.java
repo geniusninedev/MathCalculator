@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class GCFCalculator extends AppCompatActivity {
     EditText editTextAnswerNumber;
@@ -28,6 +31,12 @@ public class GCFCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gcfcalculator);
+
+        MobileAds.initialize(GCFCalculator.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewgcgcalculator);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         editTextAnswerNumber=(EditText)findViewById(R.id.editTextAnswerNumber);
 
         editTextFirstValue=(EditText)findViewById(R.id.editTextOne);

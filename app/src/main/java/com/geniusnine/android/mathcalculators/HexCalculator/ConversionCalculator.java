@@ -14,6 +14,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
@@ -32,6 +35,11 @@ public class ConversionCalculator extends android.support.v4.app.Fragment {
       //Change R.layout.tab1 in you classes
       View view = inflater.inflate(R.layout.activity_conversion_calculator, container, false);
 
+      MobileAds.initialize(getActivity(), getString(R.string.ads_app_id));
+      AdView mAdView = (AdView)view.findViewById(R.id.adViewconversion);
+
+      AdRequest adRequest = new AdRequest.Builder().build();
+      mAdView.loadAd(adRequest);
       editTextConvertNumber = (EditText) view.findViewById(R.id.editTextNumber);
       editTextDecimalNumber = (EditText) view.findViewById(R.id.editTextDecimalNumber);
       editTextHexadecimalNumber = (EditText) view.findViewById(R.id.editTextHexaDecimalNumber);

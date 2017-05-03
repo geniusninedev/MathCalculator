@@ -13,8 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.geniusnine.android.mathcalculators.DensityCalculator.DensityCalculator;
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class ExponentCalculator extends AppCompatActivity {
     EditText editTextBase,editTextExponent,editTextResult;
@@ -25,7 +29,11 @@ public class ExponentCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exponent_calculator);
+        MobileAds.initialize(ExponentCalculator.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewexponent);
 
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         editTextBase=(EditText)findViewById(R.id.editTextBase);
         editTextExponent=(EditText)findViewById(R.id.editTextExponent);
        // editTextResult=(EditText)findViewById(R.id.editTextResult);

@@ -13,7 +13,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.geniusnine.android.mathcalculators.ExponentCalci.ExponentCalculator;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
@@ -35,6 +39,12 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
 
     View view = inflater.inflate(R.layout.activity_fraction_calculator, container, false);
 
+
+    MobileAds.initialize(getActivity(), getString(R.string.ads_app_id));
+    AdView mAdView = (AdView) view.findViewById(R.id.adViewfraction);
+
+    AdRequest adRequest = new AdRequest.Builder().build();
+    mAdView.loadAd(adRequest);
         firstValue=(EditText)view.findViewById(R.id.editTextFirstValue);
         secondValue=(EditText)view.findViewById(R.id.editTextSecondValue);
         thirdValue=(EditText)view.findViewById(R.id.editTextThirdValue);

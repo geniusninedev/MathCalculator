@@ -14,8 +14,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.geniusnine.android.mathcalculators.DateCalculator.DateCalculator;
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class DensityCalculator extends AppCompatActivity {
     EditText editTextDensity,editTextVolume,editTextMass;
@@ -26,6 +30,11 @@ public class DensityCalculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_density_calculator);
 
+        MobileAds.initialize(DensityCalculator.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewdensity);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         editTextDensity=(EditText)findViewById(R.id.editTextDensity);
         editTextVolume=(EditText)findViewById(R.id.editTextVolume);
         editTextMass=(EditText)findViewById(R.id.editTextMass);

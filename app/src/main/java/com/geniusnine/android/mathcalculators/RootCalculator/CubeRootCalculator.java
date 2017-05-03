@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class CubeRootCalculator extends android.support.v4.app.Fragment{
 
@@ -24,6 +27,12 @@ public class CubeRootCalculator extends android.support.v4.app.Fragment{
 
 
         View view = inflater.inflate(R.layout.activity_cube_root_calculator, container, false);
+
+        MobileAds.initialize(getActivity(), getString(R.string.ads_app_id));
+        AdView mAdView = (AdView)view. findViewById(R.id.adViewcuberoot);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         textViewCubeRoot=(TextView)view.findViewById(R.id.textViewCubeNumber);
         cubeRootResult=(EditText) view.findViewById(R.id.editTextCubeRootResult);

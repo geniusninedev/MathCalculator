@@ -14,8 +14,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.geniusnine.android.mathcalculators.GCFCalculator.GCFCalculator;
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class QuadraticCalci extends AppCompatActivity {
     TextView valueOne,valueTwo,valueThree;
@@ -27,6 +31,13 @@ public class QuadraticCalci extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quadratic_calci);
+
+
+        MobileAds.initialize(QuadraticCalci.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewquadratic);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         valueOne=(TextView)findViewById(R.id.textViewFirst);
         valueTwo=(TextView)findViewById(R.id.textViewSecond);

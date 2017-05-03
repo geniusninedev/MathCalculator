@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import com.geniusnine.android.mathcalculators.MainActivity;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
@@ -28,6 +31,12 @@ public class BinaryCalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_binary_calculator);
+
+        MobileAds.initialize(BinaryCalculator.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewbinary);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         valueOne=(EditText)findViewById(R.id.editTextValueOne);
         valueTwo=(EditText)findViewById(R.id.editTextValueTwo);

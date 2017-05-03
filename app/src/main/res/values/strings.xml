@@ -14,6 +14,8 @@
     <string name="web_address">https://geniusnineapps.azurewebsites.net</string>
     <string name="getApp_id">Get Your Own App</string>
 
+    <string name="banner_ad_unit_id">ca-app-pub-6819279779322408/7916156970</string>
+    <string name="ads_app_id">ca-app-pub-6819279779322408~2009224175</string>
 
     <string name="loading">Loading</string>
     <string name="googleloginText">Sign In</string>
@@ -21,6 +23,7 @@
     <string name="heading_my_posts">My Posts</string>
     <string name="heading_my_top_posts">My Top Posts</string>
 
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec condimentum ante, quis mattis mi. Proin ut rhoncus libero, ac euismod neque. Ut suscipit, enim a facilisis consequat, orci lacus venenatis orci, at ultricies orci nulla sed ex. In condimentum viverra velit, eget feugiat libero imperdiet vel. Aenean pretium, lectus vitae bibendum bibendum, diam turpis convallis eros, quis tristique leo sapien at ipsum. Praesent eu odio id nulla lobortis auctor. Donec eget dolor eget nisl euismod commodo vel a lacus. Quisque ut justo vitae urna pharetra accumsan. Etiam dignissim neque iaculis mauris viverra, blandit rhoncus odio porttitor. Phasellus nibh arcu.</string>
 
     <string name="app_name1">Percent Error Calculator</string>
     <string name="app_name2">Half Life Calculator</string>

@@ -12,7 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.geniusnine.android.mathcalculators.GCFCalculator.GCFCalculator;
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class RatioCalculator extends android.support.v4.app.Fragment {
     EditText editTextFirstValue,editTextSecondValue,editTextThirdValue,editTextFourthValue;
@@ -23,7 +27,11 @@ public class RatioCalculator extends android.support.v4.app.Fragment {
 
 
         View view = inflater.inflate(R.layout.activity_ratio_calculator, container, false);
+        MobileAds.initialize(getActivity(), getString(R.string.ads_app_id));
+        AdView mAdView = (AdView)view. findViewById(R.id.adViewratiocal);
 
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         editTextFirstValue=(EditText)view.findViewById(R.id.editTextFirstValue);
         editTextSecondValue=(EditText)view.findViewById(R.id.editTextSecondValue);

@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.geniusnine.android.mathcalculators.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class MeanHalfLifeCalculator extends android.support.v4.app.Fragment {
 
@@ -27,6 +30,12 @@ public class MeanHalfLifeCalculator extends android.support.v4.app.Fragment {
 
 
         View view = inflater.inflate(R.layout.activity_mean_half_life_calculator, container, false);
+
+        MobileAds.initialize(getActivity(), getString(R.string.ads_app_id));
+        AdView mAdView = (AdView)view.findViewById(R.id.adViewmeanhalflife);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         textViewHalf=(TextView)view.findViewById(R.id.textViewHalf);
         textViewMeanLife=(TextView)view.findViewById(R.id.textViewMeanLife);

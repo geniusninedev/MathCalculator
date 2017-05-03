@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_exponent_calculator"
@@ -9,9 +10,33 @@
     android:layout_height="match_parent"
 
     tools:context="com.geniusnine.android.mathcalculators.ExponentCalci.ExponentCalculator">
+
     <LinearLayout
-        android:layout_marginTop="150dp"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/adviews"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="80dp"
+        android:weightSum="2">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewexponent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="SMART_BANNER"
+            android:layout_marginTop="1dp"
+            ads:adUnitId="@string/banner_ad_unit_id">
+        </com.google.android.gms.ads.AdView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/adviews"
+        android:layout_width="match_parent"
+        android:layout_marginTop="3dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2"
@@ -58,6 +83,7 @@ android:layout_weight="1"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="3"
+        android:id="@+id/valueslayout"
         android:layout_marginTop="20dp"
       >
 
