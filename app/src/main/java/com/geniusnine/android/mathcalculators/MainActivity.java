@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity
     private DatabaseReference databaseReferenceUserContacts;
     private DatabaseReference mDatabaseUserData;
     private CustomAdapter mAdapter;
+    Handler handler;
     private ArrayList<String> listCountry;
     private ArrayList<Integer> listFlag;
 
@@ -112,8 +114,19 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                handler = new Handler();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(new Intent(MainActivity.this, ForumActivity.class));
+                            }
+                        });
 
-              startActivity(new Intent(MainActivity.this, ForumActivity.class));
+                    }
+                }).start();
             }
         });
         // prepared arraylist and passed it to the Adapter class
