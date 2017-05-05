@@ -1,6 +1,7 @@
 package com.geniusnine.android.mathcalculators.FlagQuizGame;
 
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -290,6 +291,7 @@ public class QuizFragment extends Fragment
                 if (correctAnswers == FLAGS_IN_QUIZ)
                 {
                     // DialogFragment to display quiz stats and start new quiz
+                    @SuppressLint("ValidFragment")
                     DialogFragment quizResults =
                             new DialogFragment()
                             {
@@ -299,7 +301,7 @@ public class QuizFragment extends Fragment
                                 {
                                     AlertDialog.Builder builder =
                                             new AlertDialog.Builder(getActivity());
-                                    builder.setCancelable(false);
+                                    builder.setCancelable(true);
                                     String message1=getResources().getString(R.string.results,
                                             totalGuesses, (1000 / (double) totalGuesses));
                                     String message2=getResources().getString(R.string.first_guess,
